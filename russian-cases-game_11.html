@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПАДЕЖИ и РОД — The Russian Grammar Drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Marck+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F3EAD8;
+    --paper:#EAE0C8;
+    --ink:#1C1B19;
+    --red:#BE342A;
+    --mustard:#D9A441;
+    --teal:#1F6F63;
+    --plum:#5B4B8A;
+    --indigo:#3B5BA5;
+    --amber:#B8752E;
+    --line: rgba(28,27,25,0.16);
+    --shadow: 6px 6px 0 rgba(28,27,25,0.9);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    background-image:
+      radial-gradient(circle at 8% 12%, rgba(190,52,42,0.05) 0, transparent 40%),
+      radial-gradient(circle at 92% 85%, rgba(31,111,99,0.06) 0, transparent 45%);
+    color:var(--ink);
+    font-family:'PT Sans', sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:28px 16px 60px;
+  }
+  .app{ width:100%; max-width:780px; }
+  h1,h2,h3{ font-family:'PT Sans Narrow', sans-serif; text-transform:uppercase; margin:0; letter-spacing:0.02em; }
+  .eyebrow{
+    font-family:'PT Sans Narrow', sans-serif;
+    font-weight:700;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--red);
+  }
+  /* ---------- HEADER ---------- */
+  .masthead{
+    border:3px solid var(--ink);
+    background:var(--paper);
+    box-shadow: var(--shadow);
+    padding:22px 24px 18px;
+    margin-bottom:22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .masthead::before{
+    content:"";
+    position:absolute; top:0; right:0; bottom:0;
+    width:10px;
+    background:repeating-linear-gradient(45deg, var(--red) 0 6px, transparent 6px 12px);
+  }
+  .masthead h1{ font-size:44px; line-height:0.98; font-weight:700; }
+  .masthead .sub{ font-size:15px; margin-top:6px; max-width:520px; color:#4a463f; }
+  .rule{ height:2px; background:var(--ink); margin:14px 0 0; }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-block{ margin-bottom:30px; }
+  .section-head{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .section-head .tag{
+    font-family:'PT Sans Narrow'; font-weight:700; font-size:20px; text-transform:uppercase;
+    border:2.5px solid var(--ink); padding:4px 12px; background:var(--paper);
+  }
+  .section-head .tag.gender{ box-shadow:3px 3px 0 var(--plum); }
+  .section-head .tag.cases{ box-shadow:3px 3px 0 var(--teal); }
+  .section-head .tag.sounds{ box-shadow:3px 3px 0 var(--indigo); }
+  .section-head .tag.counting{ box-shadow:3px 3px 0 var(--amber); }
+  .section-head .tag.learn{ box-shadow:3px 3px 0 var(--mustard); }
+  .section-head .tag.cursive{ box-shadow:3px 3px 0 var(--red); }
+  .section-head .desc{ font-size:13px; color:#4a463f; }
+
+  .subgroup-label{
+    font-family:'PT Sans Narrow'; font-weight:700; font-size:13px; text-transform:uppercase;
+    letter-spacing:0.1em; color:#4a463f; margin:18px 0 8px; padding-left:2px;
+    border-left:4px solid var(--indigo);
+    padding-left:8px;
+  }
+  .subgroup-label:first-of-type{ margin-top:6px; }
+
+  .mega-divider{ display:flex; align-items:center; gap:14px; margin:34px 0 18px; }
+  .mega-divider .line{ flex:1; height:3px; background:var(--ink); }
+  .mega-divider .label{ font-family:'PT Sans Narrow'; font-weight:700; font-size:15px; text-transform:uppercase; letter-spacing:0.18em; white-space:nowrap; }
+
+  /* ---------- LESSON CARDS ---------- */
+  .lesson-card .stamp{ color:var(--mustard); border-color:var(--mustard); }
+
+  /* ---------- LESSON DETAIL CONTENT ---------- */
+  .lesson-content h4{ font-size:19px; margin:22px 0 4px; border-bottom:2px solid var(--ink); padding-bottom:5px; }
+  .lesson-content h4:first-child{ margin-top:0; }
+  .lesson-content p.lesson-intro{ font-size:14.5px; color:#4a463f; margin:4px 0 10px; line-height:1.5; }
+  .lesson-note{ font-size:13px; color:#4a463f; margin:6px 0 16px; line-height:1.5; }
+  .lesson-table{ width:100%; border-collapse:collapse; margin:10px 0 6px; font-size:13.5px; }
+  .lesson-table th, .lesson-table td{ border:1.5px solid var(--ink); padding:6px 9px; text-align:left; vertical-align:top; }
+  .lesson-table th{ background:var(--ink); color:var(--cream); font-family:'PT Sans Narrow'; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; font-size:12px; }
+  .lesson-table tr:nth-child(even) td{ background:rgba(28,27,25,0.04); }
+  .lesson-table .ru{ font-style:normal; font-weight:600; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 16px; }
+  .pill{ border:2px solid var(--ink); padding:4px 10px; font-size:12.5px; font-family:'PT Sans Narrow'; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; background:var(--cream); }
+
+  /* ---------- CASE WHEEL / GENDER TRIO ---------- */
+  .wheel-wrap{ display:flex; justify-content:center; margin:16px 0; }
+
+  /* ---------- MODE CARDS ---------- */
+  .modes{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:520px){ .modes{ grid-template-columns:1fr; } }
+  .mode-card{
+    border:2.5px solid var(--ink);
+    background:var(--cream);
+    padding:16px 16px 14px;
+    cursor:pointer;
+    text-align:left;
+    font-family:inherit;
+    position:relative;
+    transition:transform .12s ease, box-shadow .12s ease;
+    box-shadow:4px 4px 0 rgba(28,27,25,0.85);
+  }
+  .mode-card:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 rgba(28,27,25,0.85); }
+  .mode-card:active{ transform:translate(0,0); box-shadow:2px 2px 0 rgba(28,27,25,0.85); }
+  .mode-card .stamp{
+    position:absolute; top:10px; right:12px;
+    font-family:'PT Sans Narrow'; font-weight:700; font-size:11px;
+    letter-spacing:0.12em; color:var(--teal); border:1.5px solid var(--teal);
+    padding:2px 6px; transform:rotate(4deg);
+  }
+  .mode-card h3{ font-size:22px; margin-bottom:4px; }
+  .mode-card p{ font-size:13.5px; margin:0; color:#4a463f; line-height:1.4; }
+
+  /* ---------- GAME SCREEN ---------- */
+  .hud{
+    display:flex; justify-content:space-between; align-items:center;
+    border:2.5px solid var(--ink); background:var(--paper);
+    padding:10px 16px; margin-bottom:16px; box-shadow:var(--shadow);
+    font-family:'PT Sans Narrow'; font-weight:700; font-size:15px;
+    flex-wrap:wrap; gap:8px;
+  }
+  .hud span.k{ color:var(--red); }
+  .timerbar-track{ height:6px; background:var(--line); margin:-16px -16px 16px; border-bottom:2.5px solid var(--ink); }
+  .timerbar-fill{ height:100%; background:var(--mustard); transition:width .18s linear; }
+
+  .progress-dots{ display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+  .dot{ width:14px; height:14px; border:2px solid var(--ink); background:var(--cream); }
+  .dot.done-correct{ background:var(--teal); }
+  .dot.done-wrong{ background:var(--red); }
+  .dot.current{ background:var(--mustard); }
+
+  .card{
+    border:3px solid var(--ink); background:var(--paper);
+    padding:26px 24px; box-shadow:var(--shadow); margin-bottom:18px;
+  }
+  .qtype{ font-family:'PT Sans Narrow'; font-weight:700; letter-spacing:0.2em; font-size:12px; color:var(--teal); text-transform:uppercase; margin-bottom:8px; }
+  .qtext{ font-size:21px; line-height:1.35; margin-bottom:4px; }
+  .qtext strong{ color:var(--red); border-bottom:2px solid var(--red); }
+  .qword{ font-size:26px; font-style:normal; font-weight:700; margin-top:6px; }
+  .qmeaning{ font-size:14px; color:#4a463f; margin-top:2px; }
+
+  .options{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:8px; }
+  @media (max-width:480px){ .options{ grid-template-columns:1fr; } }
+  .opt{
+    border:2.5px solid var(--ink); background:var(--cream); padding:13px 14px;
+    font-family:'PT Sans', sans-serif; font-size:16px; text-align:left; cursor:pointer;
+    box-shadow:3px 3px 0 rgba(28,27,25,0.85); transition:transform .1s ease;
+  }
+  .opt:hover:not(:disabled){ transform:translate(-1px,-1px); }
+  .opt:disabled{ cursor:default; }
+  .opt.correct{ background:var(--teal); color:#fff; border-color:var(--teal); }
+  .opt.wrong{ background:var(--red); color:#fff; border-color:var(--red); }
+  .opt.reveal{ outline:3px solid var(--teal); }
+
+  .feedback{ margin-top:14px; font-size:14px; padding:12px 14px; border-left:4px solid var(--ink); background:rgba(255,255,255,0.35); display:none; }
+  .feedback.show{ display:block; }
+  .next-btn{
+    margin-top:14px; border:2.5px solid var(--ink); background:var(--ink); color:var(--cream);
+    font-family:'PT Sans Narrow'; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    padding:10px 22px; cursor:pointer; font-size:15px; display:none;
+  }
+  .next-btn.show{ display:inline-block; }
+
+  .lives{ display:flex; gap:4px; }
+  .life{ width:12px; height:12px; background:var(--red); border:1.5px solid var(--ink); }
+  .life.lost{ background:transparent; opacity:.3; }
+
+  /* ---------- END SCREEN ---------- */
+  .end-score{ font-size:64px; font-family:'PT Sans Narrow'; font-weight:700; color:var(--red); line-height:1; }
+  .end-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:18px 0; }
+  .end-stat{ border:2px solid var(--ink); padding:10px; text-align:center; background:var(--cream); }
+  .end-stat .num{ font-family:'PT Sans Narrow'; font-weight:700; font-size:26px; }
+  .end-stat .lab{ font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#4a463f; }
+
+  .gender-bars{ display:flex; gap:16px; justify-content:center; align-items:flex-end; height:170px; margin:20px 0; flex-wrap:wrap; }
+  .gbar-col{ display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; width:92px; }
+  .gbar{ width:44px; background:var(--line); border:2.5px solid var(--ink); position:relative; }
+  .gbar-fill{ position:absolute; bottom:0; left:0; right:0; }
+  .gbar-lab{ font-family:'PT Sans Narrow'; font-weight:700; font-size:12px; margin-top:8px; text-transform:uppercase; text-align:center; line-height:1.2; }
+  .gbar-pct{ font-family:'PT Sans Narrow'; font-weight:700; font-size:16px; }
+
+  .back-link{ background:none; border:none; font-family:'PT Sans Narrow'; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--ink); text-decoration:underline; cursor:pointer; font-size:13px; padding:0; margin-bottom:14px; }
+
+  .primary-btn{
+    border:2.5px solid var(--ink); background:var(--red); color:#fff;
+    font-family:'PT Sans Narrow'; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    padding:12px 24px; cursor:pointer; font-size:16px; box-shadow:4px 4px 0 rgba(28,27,25,0.85);
+  }
+  .primary-btn:hover{ transform:translate(-1px,-1px); }
+  .screen{ display:none; }
+  .screen.active{ display:block; }
+
+  /* ---------- CURSIVE TRACE SCREEN ---------- */
+  .trace-toolbar{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:14px; }
+  .trace-btn{
+    border:2.5px solid var(--ink); background:var(--cream);
+    font-family:'PT Sans Narrow'; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;
+    padding:8px 14px; cursor:pointer; box-shadow:3px 3px 0 rgba(28,27,25,0.85); font-size:13px;
+  }
+  .trace-btn:hover{ transform:translate(-1px,-1px); }
+  .trace-btn.primary{ background:var(--red); color:#fff; }
+  .trace-btn.tab{ background:var(--cream); }
+  .trace-btn.tab.active{ background:var(--ink); color:var(--cream); }
+  .trace-letter-label{ font-family:'PT Sans Narrow'; font-weight:700; font-size:24px; min-width:70px; text-align:center; }
+  .trace-stage{
+    position:relative; border:3px solid var(--ink); background:#FBF6EA;
+    box-shadow:var(--shadow); height:260px; overflow:hidden; touch-action:none;
+  }
+  .trace-line{ position:absolute; left:0; right:0; height:0; border-top:2px dashed rgba(28,27,25,0.32); }
+  .trace-line.baseline{ border-top:3px solid rgba(28,27,25,0.55); }
+  .trace-guide{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Marck Script', cursive; font-size:150px; line-height:1;
+    color:rgba(28,27,25,0.26); pointer-events:none; user-select:none; padding-bottom:14px;
+  }
+  #traceCanvas{ position:absolute; inset:0; width:100%; height:100%; cursor:crosshair; }
+  .trace-hint{ font-size:13px; color:#4a463f; margin-top:10px; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="masthead">
+    <div class="eyebrow">Grammar Drill</div>
+    <h1>ПАДЕЖИ и РОД</h1>
+    <div class="sub">Two tracks, one language: nail down noun gender by ending, then put the six cases through their paces. Pick a track and a difficulty below.</div>
+    <div class="rule"></div>
+  </div>
+
+  <!-- START SCREEN -->
+  <div class="screen active" id="screen-start">
+
+    <div class="mega-divider" style="margin-top:0;"><div class="line"></div><div class="label">Игра́ · Play</div><div class="line"></div></div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="tag gender">Род · Gender</div>
+        <div class="desc">Identify a noun's gender purely from its ending — the 11 rules, straight from the table.</div>
+      </div>
+      <div class="modes" id="genderModeGrid"></div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="tag cases">Падежи́ · Cases</div>
+        <div class="desc">Case ID, endings, the preposition rules that trigger each of the six cases, and how nouns agree with numbers.</div>
+      </div>
+      <div class="wheel-wrap" id="wheelHome"></div>
+
+      <div class="subgroup-label">Combined — all case skills mixed</div>
+      <div class="modes" id="caseModeGridCombined"></div>
+
+      <div class="subgroup-label">Numbers &amp; Agreement only</div>
+      <div class="modes" id="caseModeGridNumbers"></div>
+    </div>
+
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="tag sounds">Зву́ки · Sounds</div>
+        <div class="desc">The 5/7/8-letter spelling rules, plus how voiced consonants devoice and voiceless ones voice — mixed together, or drilled one topic at a time.</div>
+      </div>
+
+      <div class="subgroup-label">Combined — both topics mixed</div>
+      <div class="modes" id="soundModeGridCombined"></div>
+
+      <div class="subgroup-label">5 / 7 / 8-Letter Rules only</div>
+      <div class="modes" id="soundModeGridLetters"></div>
+
+      <div class="subgroup-label">Voiced ↔ Voiceless only</div>
+      <div class="modes" id="soundModeGridVoicing"></div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="tag counting">Чи́сла · Counting</div>
+        <div class="desc">You're shown a number — pick which Russian word or phrase it is.</div>
+      </div>
+      <div class="modes" id="countingModeGrid"></div>
+    </div>
+
+    <div class="mega-divider"><div class="line"></div><div class="label">Учёба · Learn</div><div class="line"></div></div>
+
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="tag learn">Reference</div>
+        <div class="desc">No timer, no score — just clear tables to study before (or instead of) the quizzes above.</div>
+      </div>
+      <div class="modes" id="learnCardGrid"></div>
+    </div>
+
+    <div class="mega-divider"><div class="line"></div><div class="label">Про́пись · Cursive</div><div class="line"></div></div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <div class="tag cursive">Handwriting</div>
+        <div class="desc">Russian cursive (про́пись) looks very different from the printed alphabet. Study the letterforms, then trace and freehand them yourself.</div>
+      </div>
+      <div class="modes" id="cursiveCardGrid"></div>
+    </div>
+
+  </div>
+
+  <!-- LEARN DETAIL SCREEN -->
+  <div class="screen" id="screen-learn-detail">
+    <button class="back-link" id="learnBackBtn">&larr; Back to modes</button>
+    <div class="card">
+      <div class="eyebrow" id="learnTitle">Lesson</div>
+      <div class="lesson-content" id="learnContent"></div>
+    </div>
+  </div>
+
+  <!-- CURSIVE TRACE / DRAW SCREEN -->
+  <div class="screen" id="screen-trace">
+    <button class="back-link" id="traceBackBtn">&larr; Back to modes</button>
+    <div class="card">
+      <div class="eyebrow">Trace &amp; Draw</div>
+      <h2 style="font-size:26px; margin:2px 0 12px;">Cursive Practice</h2>
+      <div class="trace-toolbar">
+        <button class="trace-btn tab active" id="traceModeLettersBtn">Letters</button>
+        <button class="trace-btn tab" id="traceModeWordsBtn">Words</button>
+      </div>
+      <div class="trace-toolbar">
+        <button class="trace-btn" id="tracePrevBtn">&larr; Prev</button>
+        <div class="trace-letter-label" id="traceLetterLabel">а</div>
+        <button class="trace-btn" id="traceNextBtn">Next &rarr;</button>
+        <button class="trace-btn" id="traceCaseBtn">ABC / abc</button>
+        <button class="trace-btn primary" id="traceClearBtn">Clear</button>
+        <button class="trace-btn tab active" id="traceGuideToggleBtn">Guide: On</button>
+      </div>
+      <div class="trace-stage" id="traceStage">
+        <div class="trace-line" style="top:22%;"></div>
+        <div class="trace-line" style="top:50%;"></div>
+        <div class="trace-line baseline" style="top:78%;"></div>
+        <div class="trace-line" style="top:100%;"></div>
+        <div class="trace-guide" id="traceGuide"></div>
+        <canvas id="traceCanvas"></canvas>
+      </div>
+      <p class="trace-hint" id="traceHint">Trace the faint guide letter with your mouse or finger, or draw freehand anywhere on the lines. Use Prev/Next to move through the alphabet, and the ABC/abc button to switch case.</p>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div class="screen" id="screen-game">
+    <button class="back-link" id="quitBtn">&larr; Quit round</button>
+    <div class="hud">
+      <div>Score <span class="k" id="hudScore">0</span></div>
+      <div id="hudLivesWrap" style="display:none;">Lives <div class="lives" id="hudLives"></div></div>
+      <div>Streak <span class="k" id="hudStreak">0</span></div>
+      <div id="hudQnum">Q 1</div>
+    </div>
+    <div class="timerbar-track" id="timerTrack" style="display:none;">
+      <div class="timerbar-fill" id="timerFill" style="width:100%;"></div>
+    </div>
+    <div class="progress-dots" id="progressDots"></div>
+
+    <div class="card">
+      <div class="qtype" id="qType">Case ID</div>
+      <div class="qtext" id="qText"></div>
+      <div class="options" id="qOptions"></div>
+      <div class="feedback" id="qFeedback"></div>
+      <button class="next-btn" id="nextBtn">Next question &rarr;</button>
+    </div>
+  </div>
+
+  <!-- END SCREEN -->
+  <div class="screen" id="screen-end">
+    <div class="card">
+      <div class="eyebrow" id="endHeadline">Round complete</div>
+      <div class="end-score" id="endScore">0</div>
+      <div class="end-grid">
+        <div class="end-stat"><div class="num" id="endCorrect">0</div><div class="lab">Correct</div></div>
+        <div class="end-stat"><div class="num" id="endStreak">0</div><div class="lab">Best streak</div></div>
+        <div class="end-stat"><div class="num" id="endAccuracy">0%</div><div class="lab">Accuracy</div></div>
+      </div>
+      <div id="endVisualWrap"></div>
+      <div style="display:flex; gap:12px; margin-top:14px; flex-wrap:wrap;">
+        <button class="primary-btn" id="playAgainBtn">Play again</button>
+        <button class="back-link" id="menuBtn" style="align-self:center;">&larr; Back to modes</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+
+// ---------------------------------------------------------------
+// SOUND EFFECTS — tiny synthesized cues via Web Audio API (no files)
+// ---------------------------------------------------------------
+let audioCtx = null;
+function getAudioCtx(){
+  if(!audioCtx){
+    try{ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch(e){ return null; }
+  }
+  if(audioCtx.state === 'suspended'){ audioCtx.resume(); }
+  return audioCtx;
+}
+
+function tone(freq, startTime, duration, type, peakGain){
+  const ctx = getAudioCtx();
+  if(!ctx) return;
+  const t0 = ctx.currentTime + startTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type || 'sine';
+  osc.frequency.setValueAtTime(freq, t0);
+  gain.gain.setValueAtTime(0.0001, t0);
+  gain.gain.linearRampToValueAtTime(peakGain || 0.15, t0 + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(t0);
+  osc.stop(t0 + duration + 0.03);
+}
+
+function sfxCorrect(){
+  tone(523.25, 0,    0.13, 'sine', 0.16);
+  tone(659.25, 0.09, 0.20, 'sine', 0.16);
+}
+function sfxWrong(){
+  tone(220.00, 0,    0.16, 'square', 0.10);
+  tone(174.61, 0.10, 0.24, 'square', 0.10);
+}
+function sfxSetComplete(){
+  [523.25, 659.25, 783.99, 1046.50].forEach((f,i)=> tone(f, i*0.11, 0.18, 'triangle', 0.14));
+}
+function sfxMarathonLose(){
+  [392.00, 349.23, 311.13, 261.63].forEach((f,i)=> tone(f, i*0.17, 0.30, 'sawtooth', 0.12));
+}
+function sfxHover(){
+  tone(880, 0, 0.05, 'sine', 0.035);
+}
+function sfxSelect(){
+  tone(659.25, 0,    0.05, 'square', 0.08);
+  tone(987.77, 0.04, 0.08, 'square', 0.08);
+}
+
+// Attach hover + select cues to any clickable card without disturbing its own click action
+function withUISound(el, action){
+  el.addEventListener('mouseenter', sfxHover);
+  el.addEventListener('click', sfxSelect);
+  el.onclick = action;
+}
+
+// ---------------------------------------------------------------
+// CASE METADATA (for the case wheel)
+// ---------------------------------------------------------------
+const CASES = {
+  nom:   { short:'Nom',   angle:-90 },
+  gen:   { short:'Gen',   angle:-30 },
+  dat:   { short:'Dat',   angle:30  },
+  acc:   { short:'Acc',   angle:90  },
+  instr: { short:'Instr', angle:150 },
+  prep:  { short:'Prep',  angle:210 }
+};
+
+function buildWheel(container, accuracyMap){
+  const size = 240, cx = size/2, cy = size/2, r = 84;
+  let spokes = '', labels = '';
+  Object.entries(CASES).forEach(([key, c])=>{
+    const rad = c.angle * Math.PI/180;
+    const x = cx + r*Math.cos(rad), y = cy + r*Math.sin(rad);
+    let fill = 'var(--ink)';
+    if(accuracyMap && accuracyMap[key] !== undefined){
+      const a = accuracyMap[key];
+      fill = a === null ? 'rgba(28,27,25,0.25)' : (a >= 0.75 ? 'var(--teal)' : a >= 0.4 ? 'var(--mustard)' : 'var(--red)');
+    }
+    spokes += '<line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="'+fill+'" stroke-width="3"/>';
+    spokes += '<circle cx="'+x+'" cy="'+y+'" r="19" fill="'+fill+'" stroke="var(--ink)" stroke-width="2"/>';
+    labels += '<text x="'+x+'" y="'+(y+4)+'" text-anchor="middle" font-family="PT Sans Narrow" font-weight="700" font-size="12" fill="#F3EAD8">'+c.short+'</text>';
+  });
+  container.innerHTML = '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'">' +
+    '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="4 5"/>' +
+    spokes +
+    '<circle cx="'+cx+'" cy="'+cy+'" r="24" fill="var(--paper)" stroke="var(--ink)" stroke-width="3"/>' +
+    '<text x="'+cx+'" y="'+(cy+5)+'" text-anchor="middle" font-family="PT Sans Narrow" font-weight="700" font-size="13" fill="var(--ink)">6</text>' +
+    labels +
+    '</svg>';
+}
+
+function buildBarChart(container, entries){
+  let html = '<div class="gender-bars">';
+  entries.forEach(e=>{
+    const pct = e.total ? Math.round(e.correct/e.total*100) : 0;
+    const h = e.total ? Math.max(6, pct) : 4;
+    html += '<div class="gbar-col">' +
+      '<div class="gbar-pct">'+ (e.total ? pct+'%' : '—') +'</div>' +
+      '<div class="gbar" style="height:110px;"><div class="gbar-fill" style="height:'+h+'%; background:'+e.color+';"></div></div>' +
+      '<div class="gbar-lab">'+e.label+'</div>' +
+    '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function buildGenderBars(container, stats){
+  buildBarChart(container, [
+    {label:'Masc.', color:'var(--teal)', correct:stats.m.correct, total:stats.m.total},
+    {label:'Fem.', color:'var(--red)', correct:stats.f.correct, total:stats.f.total},
+    {label:'Neut.', color:'var(--mustard)', correct:stats.n.correct, total:stats.n.total}
+  ]);
+}
+
+function buildSoundBars(container, stats){
+  buildBarChart(container, [
+    {label:'Spelling (5/7/8)', color:'var(--indigo)', correct:stats.spelling.correct, total:stats.spelling.total},
+    {label:'Voiced/Voiceless', color:'var(--red)', correct:stats.sound.correct, total:stats.sound.total}
+  ]);
+}
+
+// ---------------------------------------------------------------
+// GENDER BANK — built strictly from the 11-rule table
+// ---------------------------------------------------------------
+const GENDER_BANK = [
+// Rule-level questions (easy)
+{level:'easy', gender:'m', type:'rule', q:'A noun ending in a consonant (including –й) is normally which gender? e.g. па́рк, музе́й', opts:['Masculine','Feminine','Neuter'], a:0, note:'Consonant endings (and –й) are the default masculine pattern: бар, парк, телефо́н, музе́й.'},
+{level:'easy', gender:'f', type:'rule', q:'A noun ending in –а or –я is normally which gender? e.g. маши́на, земля́', opts:['Feminine','Masculine','Neuter'], a:0, note:'–а/–я is the core feminine ending: маши́на, земля́.'},
+{level:'easy', gender:'n', type:'rule', q:'A noun ending in –о, –е, or –ё is normally which gender? e.g. ме́сто, мо́ре, бельё', opts:['Neuter','Masculine','Feminine'], a:0, note:'–о/–е/–ё marks neuter: ме́сто, мо́ре, бельё.'},
+{level:'easy', gender:'n', type:'rule', q:'A noun ending in –мя is which gender — even though it doesn\'t look like the usual neuter pattern? e.g. и́мя, вре́мя', opts:['Neuter','Masculine','Feminine'], a:0, note:'The small –мя group (и́мя, вре́мя) is neuter despite the unusual ending.'},
+
+// Word-level questions (easy) — plain -а/-я/-о/-е/consonant, no exceptions yet
+{level:'easy', gender:'m', type:'word', word:'парк', meaning:'park', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'телефо́н', meaning:'telephone', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'музе́й', meaning:'museum', opts:['Masculine','Feminine','Neuter'], a:0, note:'–й counts as a consonant ending → Masculine.'},
+{level:'easy', gender:'f', type:'word', word:'маши́на', meaning:'car', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –а → Feminine.'},
+{level:'easy', gender:'f', type:'word', word:'земля́', meaning:'land, earth', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –я → Feminine.'},
+{level:'easy', gender:'n', type:'word', word:'ме́сто', meaning:'place', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –о → Neuter.'},
+{level:'easy', gender:'n', type:'word', word:'мо́ре', meaning:'sea', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –е → Neuter.'},
+{level:'easy', gender:'n', type:'word', word:'бельё', meaning:'linen, laundry', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –ё → Neuter.'},
+
+// Medium: the meaning-based and suffix-based exceptions
+{level:'medium', gender:'m', type:'rule', q:'A noun ending in –а that refers to a MALE person is which gender, overriding the usual –а = feminine rule? e.g. па́па, дя́дя', opts:['Masculine','Feminine','Neuter'], a:0, note:'Meaning wins over ending: мужчи́на, па́па, де́душка, дя́дя are all masculine despite the –а ending.'},
+{level:'medium', gender:'m', type:'rule', q:'A noun ending in –тель or –арь is which gender? e.g. учи́тель, слова́рь', opts:['Masculine','Feminine','Neuter'], a:0, note:'These two suffixes are reliably masculine: учи́тель, слова́рь.'},
+{level:'medium', gender:'f', type:'rule', q:'A noun ending in –жь, –чь, –шь, or –щь is which gender? e.g. ночь, по́мощь, мышь', opts:['Feminine','Masculine','Neuter'], a:0, note:'These four sibilant + soft-sign endings are reliably feminine: ночь, по́мощь, мышь.'},
+{level:'medium', gender:'f', type:'rule', q:'A noun ending in –ость or –есть is which gender? e.g. но́вость, све́жесть', opts:['Feminine','Masculine','Neuter'], a:0, note:'–ость/–есть abstract nouns are reliably feminine: но́вость, све́жесть.'},
+{level:'medium', gender:'m', type:'word', word:'мужчи́на', meaning:'man', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –а, but means a male person → Masculine.'},
+{level:'medium', gender:'m', type:'word', word:'па́па', meaning:'dad', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –а, but means a male person → Masculine.'},
+{level:'medium', gender:'m', type:'word', word:'де́душка', meaning:'grandfather', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –а, but means a male person → Masculine.'},
+{level:'medium', gender:'m', type:'word', word:'дя́дя', meaning:'uncle', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –я, but means a male person → Masculine.'},
+{level:'medium', gender:'m', type:'word', word:'учи́тель', meaning:'teacher', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –тель → Masculine.'},
+{level:'medium', gender:'m', type:'word', word:'слова́рь', meaning:'dictionary', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –арь → Masculine.'},
+{level:'medium', gender:'f', type:'word', word:'ночь', meaning:'night', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –чь → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'по́мощь', meaning:'help', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –щь → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'мышь', meaning:'mouse', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –шь → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'но́вость', meaning:'news', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –ость → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'све́жесть', meaning:'freshness', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –есть → Feminine.'},
+{level:'medium', gender:'n', type:'word', word:'и́мя', meaning:'name', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –мя → Neuter (irregular group).'},
+{level:'medium', gender:'n', type:'word', word:'вре́мя', meaning:'time', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –мя → Neuter (irregular group).'},
+
+// Hard: the soft-sign ambiguity (–ь can be m., f., or a month)
+{level:'hard', gender:'m', type:'rule', q:'A noun ending in soft sign –ь that refers to a MALE person is which gender? e.g. царь, князь', opts:['Masculine','Feminine','Neuter'], a:0, note:'Meaning overrides the ambiguous –ь ending: царь, князь are masculine.'},
+{level:'hard', gender:'m', type:'rule', q:'A noun ending in soft sign –ь that is a MONTH of the year is which gender? e.g. октя́брь, апре́ль', opts:['Masculine','Feminine','Neuter'], a:0, note:'All twelve month names ending in –ь are masculine: октя́брь, апре́ль.'},
+{level:'hard', gender:'f', type:'rule', q:'A noun ending in soft sign –ь that refers to a FEMALE person is which gender? e.g. мать, дочь', opts:['Feminine','Masculine','Neuter'], a:0, note:'мать, дочь are feminine — same –ь ending as царь, but the meaning decides.'},
+{level:'hard', gender:'m', type:'word', word:'царь', meaning:'tsar', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + male person → Masculine.'},
+{level:'hard', gender:'m', type:'word', word:'князь', meaning:'prince', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + male person → Masculine.'},
+{level:'hard', gender:'m', type:'word', word:'октя́брь', meaning:'October', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + month of the year → Masculine.'},
+{level:'hard', gender:'m', type:'word', word:'апре́ль', meaning:'April', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + month of the year → Masculine.'},
+{level:'hard', gender:'f', type:'word', word:'мать', meaning:'mother', opts:['Feminine','Masculine','Neuter'], a:0, note:'–ь + female person → Feminine.'},
+{level:'hard', gender:'f', type:'word', word:'дочь', meaning:'daughter', opts:['Feminine','Masculine','Neuter'], a:0, note:'–ь + female person → Feminine.'},
+{level:'hard', gender:'m', type:'rule', q:'Given only the bare ending –ь with no other context, can you reliably guess the gender?', opts:['No — –ь alone is ambiguous; you need meaning or a specific suffix pattern','Yes — –ь is always feminine','Yes — –ь is always masculine'], a:0, note:'–ь nouns split three ways: male person / month → masc.; female person → fem.; everything else must simply be memorized.'},
+
+// ---- extra vocabulary: consonant / –й → masculine ----
+{level:'easy', gender:'m', type:'word', word:'дом', meaning:'house', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'го́род', meaning:'city', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'стол', meaning:'table', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'стул', meaning:'chair', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'авто́бус', meaning:'bus', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'каранда́ш', meaning:'pencil', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'журна́л', meaning:'magazine', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'компью́тер', meaning:'computer', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in a consonant → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'чай', meaning:'tea', opts:['Masculine','Feminine','Neuter'], a:0, note:'–й counts as a consonant ending → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'трамва́й', meaning:'tram', opts:['Masculine','Feminine','Neuter'], a:0, note:'–й counts as a consonant ending → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'геро́й', meaning:'hero', opts:['Masculine','Feminine','Neuter'], a:0, note:'–й counts as a consonant ending → Masculine.'},
+{level:'easy', gender:'m', type:'word', word:'сара́й', meaning:'shed', opts:['Masculine','Feminine','Neuter'], a:0, note:'–й counts as a consonant ending → Masculine.'},
+
+// ---- extra vocabulary: –а/–я male person → masculine ----
+{level:'medium', gender:'m', type:'word', word:'ю́ноша', meaning:'young man', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –а, but means a male person → Masculine.'},
+
+// ---- extra vocabulary: soft sign –ь + male person → masculine ----
+{level:'hard', gender:'m', type:'word', word:'коро́ль', meaning:'king', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + male person → Masculine.'},
+
+// ---- extra vocabulary: soft sign –ь + month → masculine ----
+{level:'hard', gender:'m', type:'word', word:'янва́рь', meaning:'January', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + month of the year → Masculine.'},
+{level:'hard', gender:'m', type:'word', word:'сентя́брь', meaning:'September', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + month of the year → Masculine.'},
+{level:'hard', gender:'m', type:'word', word:'ноя́брь', meaning:'November', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + month of the year → Masculine.'},
+{level:'hard', gender:'m', type:'word', word:'дека́брь', meaning:'December', opts:['Masculine','Feminine','Neuter'], a:0, note:'–ь + month of the year → Masculine.'},
+
+// ---- extra vocabulary: –тель / –арь → masculine ----
+{level:'medium', gender:'m', type:'word', word:'писа́тель', meaning:'writer', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –тель → Masculine.'},
+{level:'medium', gender:'m', type:'word', word:'чита́тель', meaning:'reader', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –тель → Masculine.'},
+{level:'medium', gender:'m', type:'word', word:'календа́рь', meaning:'calendar', opts:['Masculine','Feminine','Neuter'], a:0, note:'Ends in –арь → Masculine.'},
+
+// ---- extra vocabulary: –а/–я → feminine (non-person) ----
+{level:'easy', gender:'f', type:'word', word:'неде́ля', meaning:'week', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –я → Feminine.'},
+{level:'easy', gender:'f', type:'word', word:'фами́лия', meaning:'surname', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –я → Feminine.'},
+{level:'easy', gender:'f', type:'word', word:'у́лица', meaning:'street', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –а → Feminine.'},
+{level:'easy', gender:'f', type:'word', word:'газе́та', meaning:'newspaper', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –а → Feminine.'},
+{level:'easy', gender:'f', type:'word', word:'шко́ла', meaning:'school', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –а → Feminine.'},
+{level:'easy', gender:'f', type:'word', word:'ко́мната', meaning:'room', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –а → Feminine.'},
+{level:'easy', gender:'f', type:'word', word:'соба́ка', meaning:'dog', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –а → Feminine.'},
+
+// ---- extra vocabulary: soft sign –ь + female person → feminine ----
+{level:'hard', gender:'f', type:'word', word:'свекро́вь', meaning:"mother-in-law (husband's mother)", opts:['Feminine','Masculine','Neuter'], a:0, note:'–ь + female person → Feminine.'},
+
+// ---- extra vocabulary: –жь/–чь/–шь/–щь → feminine ----
+{level:'medium', gender:'f', type:'word', word:'вещь', meaning:'thing', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –щь → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'печь', meaning:'stove, oven', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –чь → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'рожь', meaning:'rye', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –жь → Feminine.'},
+
+// ---- extra vocabulary: –ость/–есть → feminine ----
+{level:'medium', gender:'f', type:'word', word:'ра́дость', meaning:'joy', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –ость → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'го́рдость', meaning:'pride', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –ость → Feminine.'},
+{level:'medium', gender:'f', type:'word', word:'изве́стность', meaning:'fame', opts:['Feminine','Masculine','Neuter'], a:0, note:'Ends in –ость → Feminine.'},
+
+// ---- extra vocabulary: –о/–е/–ё → neuter ----
+{level:'easy', gender:'n', type:'word', word:'окно́', meaning:'window', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –о → Neuter.'},
+{level:'easy', gender:'n', type:'word', word:'молоко́', meaning:'milk', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –о → Neuter.'},
+{level:'easy', gender:'n', type:'word', word:'я́блоко', meaning:'apple', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –о → Neuter.'},
+{level:'easy', gender:'n', type:'word', word:'по́ле', meaning:'field', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –е → Neuter.'},
+{level:'easy', gender:'n', type:'word', word:'зда́ние', meaning:'building', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –е → Neuter.'},
+{level:'easy', gender:'n', type:'word', word:'со́лнце', meaning:'sun', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –е → Neuter.'},
+
+// ---- extra vocabulary: –мя → neuter ----
+{level:'medium', gender:'n', type:'word', word:'пле́мя', meaning:'tribe', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –мя → Neuter (irregular group).'},
+{level:'medium', gender:'n', type:'word', word:'зна́мя', meaning:'banner', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –мя → Neuter (irregular group).'},
+{level:'medium', gender:'n', type:'word', word:'се́мя', meaning:'seed', opts:['Neuter','Masculine','Feminine'], a:0, note:'Ends in –мя → Neuter (irregular group).'}
+];
+
+// ---------------------------------------------------------------
+// CASE BANK (case rules, endings, identification — no gender content)
+// ---------------------------------------------------------------
+const CASE_BANK = [
+// EASY
+{level:'easy', type:'rule', case:'nom', q:'Which case answers "кто?/что?" and names the subject of a sentence?', opts:['Nominative','Genitive','Accusative','Dative'], a:0, note:'The Nominative is the "dictionary form" and the subject case: Кот спит — the cat (Nom.) sleeps.'},
+{level:'easy', type:'rule', case:'acc', q:'Which case answers "кого́?/что?" for a direct object?', opts:['Prepositional','Instrumental','Accusative','Genitive'], a:2, note:'Я чита́ю кни́гу — I am reading a book (Acc., direct object).'},
+{level:'easy', type:'rule', case:'prep', q:'Which case is used with в/на to say *where* something is (location, not motion)?', opts:['Accusative','Prepositional','Dative','Genitive'], a:1, note:'Кни́га на столе́ — the book is on the table (Prep., location).'},
+{level:'easy', type:'rule', case:'gen', q:'Which case follows the preposition "без" (without)?', opts:['Instrumental','Dative','Genitive','Prepositional'], a:2, note:'без са́хара — without sugar. без always takes the Genitive.'},
+{level:'easy', type:'rule', case:'prep', q:'Which case follows "о / об" (about)?', opts:['Prepositional','Accusative','Nominative','Instrumental'], a:0, note:'о Росси́и — about Russia. о/об is one of the defining triggers of the Prepositional case.'},
+{level:'easy', type:'ending', case:'gen', q:'кни́га → Genitive singular ("of the book")', opts:['кни́ги','кни́гы','кни́гу','кни́гой'], a:0, note:'Feminine -а nouns normally take -ы in the Genitive singular, but the 7-letter rule forces -и after г: кни́га → кни́ги, never "кни́гы".'},
+{level:'easy', type:'ending', case:'prep', q:'стол → Prepositional singular ("on the table")', opts:['столу́','стола́','столе́','столо́м'], a:2, note:'Hard masculine nouns add -е for the Prepositional: стол → столе́.'},
+{level:'easy', type:'ending', case:'instr', q:'окно́ → Instrumental singular ("by the window")', opts:['окну́','окне́','окна́','окно́м'], a:3, note:'Neuter -о nouns take -ом in the Instrumental: окно́ → окно́м.'},
+{level:'easy', type:'identify', case:'nom', q:'What case is the highlighted word in: "Э́то мой <strong>брат</strong>."', opts:['Nominative','Genitive','Dative','Instrumental'], a:0, note:'брат is the subject complement here — Nominative, the naming case.'},
+
+// MEDIUM
+{level:'medium', type:'rule', case:'dat', q:'Which case follows the prepositions "к" (toward) and "по" (along/according to)?', opts:['Genitive','Dative','Accusative','Prepositional'], a:1, note:'к дру́гу, по у́лице — both trigger the Dative.'},
+{level:'medium', type:'rule', case:'gen', q:'Which case follows "из", "до", "у", "от", and "по́сле"?', opts:['Genitive','Instrumental','Dative','Accusative'], a:0, note:'These five common prepositions of origin/limit all govern the Genitive.'},
+{level:'medium', type:'rule', case:'gen', q:'"У меня́ нет ___" (I don\'t have...) requires which case for the missing noun?', opts:['Nominative','Accusative','Genitive','Dative'], a:2, note:'Negated existence with нет always takes the Genitive: нет вре́мени, нет де́нег.'},
+{level:'medium', type:'rule', case:'acc', q:'To express motion INTO or ONTO something ("куда́?") with в/на, you use:', opts:['Prepositional','Accusative','Instrumental','Genitive'], a:1, note:'Motion toward a destination: Я иду́ в шко́лу — Accusative, not Prepositional.'},
+{level:'medium', type:'rule', case:'instr', q:'Which case follows "с" when it means "with/together with" (not "from")?', opts:['Genitive','Dative','Instrumental','Accusative'], a:2, note:'с дру́гом — with a friend. Instrumental expresses accompaniment and means.'},
+{level:'medium', type:'ending', case:'dat', q:'сестра́ → Dative singular ("to my sister")', opts:['сестры́','сестре́','сестру́','сестро́й'], a:1, note:'Feminine -а nouns take -е in the Dative: сестра́ → сестре́.'},
+{level:'medium', type:'ending', case:'acc', q:'друг (animate) → Accusative singular ("I see my friend")', opts:['друг','дру́га','дру́гу','дру́гом'], a:1, note:'Animate masculine nouns borrow the Genitive form for the Accusative: друг → дру́га.'},
+{level:'medium', type:'ending', case:'gen', q:'дверь → Genitive singular ("the color of the door")', opts:['две́ри','дверь','две́рью','двере́й'], a:0, note:'Feminine soft-sign nouns take -и: дверь → две́ри (same as Dative & Prepositional singular).'},
+{level:'medium', type:'ending', case:'prep', q:'слова́рь → Prepositional singular ("in the dictionary")', opts:['словаря́','словарю́','словарём','словаре́'], a:3, note:'Soft masculine nouns take -е in the Prepositional: слова́рь → словаре́.'},
+{level:'medium', type:'identify', case:'dat', q:'What case is the highlighted phrase in: "Я иду́ <strong>к дру́гу</strong>."', opts:['Genitive','Accusative','Dative','Instrumental'], a:2, note:'к always governs the Dative — "toward a friend."'},
+{level:'medium', type:'identify', case:'prep', q:'What case is the highlighted phrase in: "Кни́га лежи́т <strong>на столе́</strong>."', opts:['Accusative','Prepositional','Dative','Genitive'], a:1, note:'на + location (not motion) = Prepositional.'},
+{level:'medium', type:'identify', case:'gen', q:'What case is the highlighted word in: "У меня́ нет <strong>кни́ги</strong>."', opts:['Nominative','Genitive','Accusative','Dative'], a:1, note:'нет always forces the Genitive on what\'s missing.'},
+
+// HARD
+{level:'hard', type:'rule', case:'instr', q:'Which case follows "над", "под", "пе́ред", and "ме́жду"?', opts:['Accusative','Instrumental','Prepositional','Genitive'], a:1, note:'Position words like над (above), под (under), ме́жду (between) all govern the Instrumental.'},
+{level:'hard', type:'rule', case:'prep', q:'Which case follows "при" (in the presence of / at the time of)?', opts:['Instrumental','Genitive','Prepositional','Dative'], a:2, note:'при Петре́ Пе́рвом — "under/in the time of Peter the Great" takes the Prepositional.'},
+{level:'hard', type:'rule', case:'acc', q:'For an ANIMATE masculine noun, the Accusative singular form is identical to which other case?', opts:['Nominative','Genitive','Dative','Prepositional'], a:1, note:'This is the animacy rule: Я ви́жу дру́га — the Accusative "borrows" the Genitive ending for people/animals.'},
+{level:'hard', type:'rule', case:'gen', q:'After the numbers 2, 3, and 4, a following noun typically appears in which case (singular)?', opts:['Nominative','Genitive','Accusative','Dative'], a:1, note:'два стола́, три кни́ги — 2–4 take the Genitive singular; 5+ takes the Genitive plural.'},
+{level:'hard', type:'ending', case:'instr', q:'учи́тель → Instrumental singular ("by the teacher")', opts:['учи́теля','учи́телю','учи́телем','учи́теле'], a:2, note:'Soft masculine nouns take -ем (after a soft consonant) in the Instrumental.'},
+{level:'hard', type:'ending', case:'gen', q:'ночь → Genitive singular ("the middle of the night")', opts:['но́чи','ночь','но́чью','ноче́й'], a:0, note:'Feminine soft-sign nouns take -и in the Genitive, just like in the Dative/Prepositional: ночь → но́чи.'},
+{level:'hard', type:'ending', case:'gen', q:'и́мя (irregular neuter) → Genitive singular ("of the name")', opts:['и́мя','и́мени','и́мем','и́мю'], a:1, note:'The 10 neuter "-мя" nouns (и́мя, вре́мя, пле́мя...) insert -ен- before every case ending except Nom./Acc. singular.'},
+{level:'hard', type:'ending', case:'instr', q:'вре́мя (irregular neuter) → Instrumental singular ("with time")', opts:['вре́мям','вре́менем','вре́мя','вре́мени'], a:1, note:'вре́мя → вре́менем — same -ен- insertion pattern as и́мя.'},
+{level:'hard', type:'identify', case:'instr', q:'What case is the highlighted phrase in: "Я разгова́риваю <strong>с сестро́й</strong>."', opts:['Genitive','Instrumental','Dative','Accusative'], a:1, note:'с + "together with" = Instrumental, and сестро́й is the -ой Instrumental ending for feminine -а nouns.'},
+{level:'hard', type:'identify', case:'acc', q:'What case is the highlighted word in: "Я ви́жу <strong>дру́га</strong>." — even though the ending looks Genitive?', opts:['Genitive','Accusative','Dative','Nominative'], a:1, note:'The verb ви́жу takes a direct object, so grammatically this is Accusative — it simply reuses the Genitive ending because друг is animate.'},
+
+// ---- extra rule questions: more prepositions ----
+{level:'medium', type:'rule', case:'gen', q:'Which case follows "кро́ме" (except) and "вме́сто" (instead of)?', opts:['Genitive','Dative','Accusative','Instrumental'], a:0, note:'кро́ме тебя́, вме́сто ча́я — both govern the Genitive.'},
+{level:'medium', type:'rule', case:'gen', q:'Which case follows "ра́ди" (for the sake of)?', opts:['Dative','Genitive','Instrumental','Accusative'], a:1, note:'ра́ди дете́й — for the sake of the children. ра́ди takes the Genitive.'},
+{level:'hard', type:'rule', case:'dat', q:'Which case follows "согла́сно" (according to, formal register)?', opts:['Genitive','Dative','Instrumental','Prepositional'], a:1, note:'согла́сно расписа́нию — according to the schedule. This formal preposition governs the Dative.'},
+{level:'medium', type:'rule', case:'acc', q:'Which case follows "про" (about, colloquial) and "че́рез" (through/in [time])?', opts:['Prepositional','Instrumental','Accusative','Genitive'], a:2, note:'про кино́, че́рез неде́лю — both govern the Accusative.'},
+
+// ---- extra ending questions: new nouns across all six cases ----
+{level:'easy', type:'ending', case:'gen', q:'го́род → Genitive singular ("of the city")', opts:['го́рода','го́роду','го́роде','го́родом'], a:0, note:'Hard masculine nouns take -а in the Genitive: го́род → го́рода.'},
+{level:'easy', type:'ending', case:'prep', q:'парк → Prepositional singular ("in the park")', opts:['па́рку','па́рка','па́рке','па́рком'], a:2, note:'Hard masculine nouns take -е in the Prepositional: парк → па́рке.'},
+{level:'easy', type:'ending', case:'gen', q:'письмо́ → Genitive singular ("of the letter")', opts:['письма́','письмя́','письму́','письмо́м'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: письмо́ → письма́ — not -я, which is for neuter -е nouns like мо́ре → мо́ря.'},
+{level:'easy', type:'ending', case:'dat', q:'ру́чка → Dative singular ("to the pen" — e.g. giving it attention)', opts:['ру́чки','ру́чке','ру́чку','ру́чкой'], a:1, note:'Feminine -а nouns take -е in the Dative: ру́чка → ру́чке.'},
+{level:'medium', type:'ending', case:'instr', q:'ма́ма → Instrumental singular ("with mom")', opts:['ма́ме','ма́му','ма́мой','ма́мы'], a:2, note:'Feminine -а nouns take -ой in the Instrumental: ма́ма → ма́мой.'},
+{level:'medium', type:'ending', case:'acc', q:'сын (animate) → Accusative singular ("I see my son")', opts:['сын','сы́на','сы́ну','сы́ном'], a:1, note:'Animate masculine nouns borrow the Genitive form for the Accusative: сын → сы́на.'},
+{level:'medium', type:'ending', case:'acc', q:'соба́ка (animate, feminine) → Accusative singular ("I see the dog")', opts:['соба́ка','соба́ки','соба́ку','соба́кой'], a:2, note:'Feminine -а nouns always take -у in the Accusative, whether animate or not: соба́ка → соба́ку.'},
+{level:'medium', type:'ending', case:'prep', q:'тетра́дь → Prepositional singular ("in the notebook")', opts:['тетра́ди','тетра́дь','тетра́дью','тетра́дям'], a:0, note:'Feminine soft-sign nouns take -и in the Prepositional: тетра́дь → тетра́ди.'},
+{level:'hard', type:'ending', case:'instr', q:'я́блоко → Instrumental singular ("with the apple")', opts:['я́блоку','я́блоке','я́блока','я́блоком'], a:3, note:'Neuter -о nouns take -ом in the Instrumental: я́блоко → я́блоком.'},
+{level:'hard', type:'ending', case:'gen', q:'пло́щадь → Genitive singular ("the middle of the square")', opts:['пло́щади','пло́щадь','пло́щадью','площаде́й'], a:0, note:'Feminine soft-sign nouns take -и in the Genitive: пло́щадь → пло́щади.'},
+{level:'hard', type:'ending', case:'gen', q:'врач (hard-stem masculine after ч) → Genitive singular ("of the doctor")', opts:['врача́','врачу́','враче́й','врачо́м'], a:0, note:'врач declines like a regular masculine noun: врач → врача́ in the Genitive.'},
+
+// ---- extra identify questions: new sentences ----
+{level:'easy', type:'identify', case:'prep', q:'What case is the highlighted phrase in: "Мы гуля́ем <strong>в па́рке</strong>."', opts:['Accusative','Prepositional','Genitive','Dative'], a:1, note:'в + location (not motion) = Prepositional: в па́рке.'},
+{level:'medium', type:'identify', case:'prep', q:'What case is the highlighted phrase in: "Он живёт <strong>в го́роде</strong>."', opts:['Genitive','Prepositional','Accusative','Instrumental'], a:1, note:'в + location = Prepositional: в го́роде.'},
+{level:'medium', type:'identify', case:'acc', q:'What case is the highlighted word in: "Дай мне, пожа́луйста, <strong>ру́чку</strong>."', opts:['Nominative','Dative','Accusative','Instrumental'], a:2, note:'ру́чку is the direct object of "give" — Accusative.'},
+{level:'medium', type:'identify', case:'instr', q:'What case is the highlighted phrase in: "Де́ти игра́ют <strong>с соба́кой</strong>."', opts:['Genitive','Instrumental','Dative','Accusative'], a:1, note:'с + "together with" = Instrumental: с соба́кой.'},
+{level:'hard', type:'identify', case:'gen', q:'What case is the highlighted phrase in: "Э́то письмо́ <strong>от ма́мы</strong>."', opts:['Instrumental','Dative','Genitive','Accusative'], a:2, note:'от always governs the Genitive: от ма́мы — "from mom."'},
+{level:'hard', type:'identify', case:'acc', q:'What case is the highlighted word in: "Врач ле́чит <strong>сы́на</strong>."', opts:['Genitive','Accusative','Dative','Nominative'], a:1, note:'сы́на is the direct object of "ле́чит" (treats) — Accusative, using the animate masculine\'s Genitive-look-alike ending.'},
+
+// ---- NUMBER & NOUN AGREEMENT (topic: 'numbers') ----
+{level:'easy', type:'agree', case:'nom', topic:'numbers', q:'оди́н + стол (table) — which form?', opts:['стол','стола́','столо́в','столе́'], a:0, note:'1 takes Nominative singular — the noun doesn\'t change case at all: оди́н стол.'},
+{level:'easy', type:'agree', case:'nom', topic:'numbers', q:'одна́ + кни́га (book) — which form?', opts:['кни́га','кни́ги','книг','кни́ге'], a:0, note:'одна́ (the feminine form of "1") still takes Nominative singular: одна́ кни́га.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'два + стол (table) — which form?', opts:['стол','стола́','столо́в','столе́й'], a:1, note:'2 (and 3, 4) require the Genitive singular: два стола́.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'две + кни́га (book) — which form?', opts:['кни́га','кни́ги','книг','кни́гов'], a:1, note:'две (the feminine form of "2") + Genitive singular: две кни́ги.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'пять + стол (table) — which form?', opts:['стол','стола́','столо́в','столе́й'], a:2, note:'5 and up require the Genitive plural: пять столо́в.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'пять + кни́га (book) — which form?', opts:['кни́га','кни́ги','книг','кни́гов'], a:2, note:'5 and up require the Genitive plural — feminine –а nouns take a zero ending: пять книг.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'три + окно́ (window) — which form?', opts:['окно́','окна́','о́кон','окно́в'], a:1, note:'3 requires the Genitive singular: три окна́.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'де́сять + окно́ (window) — which form?', opts:['окно́','окна́','о́кон','окне́й'], a:2, note:'10 requires the Genitive plural: де́сять о́кон.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'четы́ре + слова́рь (dictionary) — which form?', opts:['слова́рь','словаря́','словаре́й','словаре́в'], a:1, note:'4 requires the Genitive singular: четы́ре словаря́.'},
+{level:'medium', type:'agree', case:'nom', topic:'numbers', q:'два́дцать одна́ + кни́га (21 books) — which form?', opts:['кни́га','кни́ги','книг','кни́ге'], a:0, note:'Compound numbers agree by their LAST word — 21 ends in "one," so it behaves like 1: Nominative singular.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'два́дцать два + стол (22 tables) — which form?', opts:['стол','стола́','столо́в','столе́й'], a:1, note:'22 ends in "two," so it behaves like 2/3/4: Genitive singular.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'два́дцать пять + стол (25 tables) — which form?', opts:['стол','стола́','столо́в','столе́й'], a:2, note:'25 ends in "five," so it behaves like 5+: Genitive plural.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'пять + год (year) — irregular Genitive plural after numbers', opts:['годо́в','го́да','лет','годе́й'], a:2, note:'год borrows an unrelated word, лет, as its Genitive plural after numbers: пять лет (but два го́да, using the regular Genitive singular).'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'пять + челове́к (person) — irregular Genitive plural after numbers', opts:['челове́ка','люде́й','челове́к','челове́ков'], a:2, note:'After a number, the Genitive plural of челове́к stays челове́к unchanged — лю́дей is used everywhere else.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'два + большо́й (big) + стол — how does the adjective agree?', opts:['большо́й','большо́го','больши́х','больши́м'], a:2, note:'Adjectives after 2/3/4 usually appear in the Genitive plural regardless of the noun\'s own case: два больши́х стола́.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'пять + письмо́ (letter) — Genitive plural with a fleeting vowel', opts:['письма́','письмо́в','пи́сем','письме́й'], a:2, note:'письмо́ takes a zero ending in the Genitive plural, and a fleeting е is inserted to break up the consonant cluster: пять пи́сем.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'две + де́вушка (girl) — which form?', opts:['де́вушка','де́вушки','де́вушек','де́вушкам'], a:1, note:'две (feminine "2") + Genitive singular: две де́вушки.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'три́дцать четы́ре + рубль (ruble) — 34, ends in "four"', opts:['рубль','рубля́','рубле́й','рублёв'], a:1, note:'34 ends in "four," so it behaves like 2/3/4: Genitive singular — три́дцать четы́ре рубля́.'},
+
+// ---- more number & noun agreement (topic: 'numbers') ----
+{level:'easy', type:'agree', case:'nom', topic:'numbers', q:'оди́н + дом (house) — which form?', opts:['дом','до́ма','домо́в'], a:0, note:'1 takes Nominative singular: оди́н дом.'},
+{level:'easy', type:'agree', case:'nom', topic:'numbers', q:'одна́ + маши́на (car) — which form?', opts:['маши́на','маши́ны','маши́н'], a:0, note:'одна́ (feminine "1") still takes Nominative singular: одна́ маши́на.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'два + друг (friend) — which form?', opts:['друг','дру́га','друзе́й'], a:1, note:'2/3/4 take the Genitive singular of the Nominative form: друг → дру́га.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'две + сестра́ (sister) — which form?', opts:['сестра́','сестры́','сестёр','сестре́й'], a:1, note:'две (feminine "2") + Genitive singular: две сестры́.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'три + рубль (ruble) — which form?', opts:['рубль','рубля́','рубле́й','рублёв'], a:1, note:'3 takes the Genitive singular: три рубля́.'},
+{level:'easy', type:'agree', case:'gen', topic:'numbers', q:'пять + рубль (ruble) — which form?', opts:['рубль','рубля́','рубле́й','рублёв'], a:2, note:'5+ takes the Genitive plural: пять рубле́й.'},
+{level:'easy', type:'rule', case:'gen', topic:'numbers', q:'Which case do the question word "ско́лько?" (how many?) and any number 5 and up both require for the noun that follows?', opts:['Genitive singular','Genitive plural','Nominative plural'], a:1, note:'ско́лько столо́в? (how many tables?) — both trigger the Genitive plural, the same as 5+.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'два́дцать три + окно́ (23 windows) — which form?', opts:['окно́','окна́','о́кон'], a:1, note:'23 ends in "three," so it behaves like 2/3/4: Genitive singular — два́дцать три окна́.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'со́рок пять + рубль (45 rubles) — which form?', opts:['рубль','рубля́','рубле́й'], a:2, note:'45 ends in "five," so it behaves like 5+: Genitive plural — со́рок пять рубле́й.'},
+{level:'medium', type:'agree', case:'nom', topic:'numbers', q:'три́дцать оди́н + стол (31 tables) — which form?', opts:['стол','стола́','столо́в'], a:0, note:'31 ends in "one," so it behaves like 1: Nominative singular — три́дцать оди́н стол.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'сто два + дом (102 houses) — which form?', opts:['дом','до́ма','домо́в'], a:1, note:'102 ends in "two," so it behaves like 2/3/4: Genitive singular — сто два до́ма.'},
+{level:'medium', type:'agree', case:'gen', topic:'numbers', q:'шестьдеся́т четы́ре + мину́та (64 minutes) — which form?', opts:['мину́та','мину́ты','мину́т'], a:1, note:'64 ends in "four," so it behaves like 2/3/4: Genitive singular — шестьдеся́т четы́ре мину́ты.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'пять + друг (friend) — irregular Genitive plural after numbers', opts:['дру́га','дру́гов','друзе́й','дру́гей'], a:2, note:'друг has a suppletive plural stem дру́зья; its Genitive plural is друзе́й, not "дру́гов": пять друзе́й.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'пять + сестра́ (sister) — irregular-looking Genitive plural after numbers', opts:['сестры́','сестр','сестёр','сестре́й'], a:2, note:'сестра́ shifts stress and inserts ё in the Genitive plural: пять сестёр.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'два + ребёнок (child) — which form?', opts:['ребёнок','ребёнка','дете́й','ребёнков'], a:1, note:'At 2/3/4, ребёнок simply takes its own regular Genitive singular: два ребёнка.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'пять + ребёнок (child) — irregular Genitive plural after numbers', opts:['ребёнка','ребёнков','дете́й','ребя́т'], a:2, note:'ребёнок borrows the suppletive plural де́ти at 5+: пять дете́й, not "ребёнков".'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'пять + раз (time/occurrence) — a classic exception', opts:['раз','ра́за','ра́зов','ра́зей'], a:0, note:'раз is one of the few nouns whose Genitive plural after a number is identical to its Nominative singular: пять раз.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'две + больша́я + сестра́ (two big sisters) — how does the adjective agree?', opts:['больша́я','большу́ю','больши́х','больши́м'], a:2, note:'Adjectives after 2/3/4 usually appear in the Genitive plural regardless of the noun\'s gender: две больши́х сестры́.'},
+{level:'hard', type:'agree', case:'gen', topic:'numbers', q:'четы́ре + интере́сный + фильм (four interesting films) — how does the adjective agree?', opts:['интере́сный','интере́сного','интере́сных','интере́сным'], a:2, note:'Same pattern: the adjective goes Genitive plural even though фильм itself is Genitive singular here: четы́ре интере́сных фи́льма.'},
+
+// ---- more plain Genitive endings (singular & plural), not tied to numbers ----
+{level:'easy', type:'ending', case:'gen', q:'дом → Genitive singular ("of the house")', opts:['до́ма','до́мя','до́му','до́ме'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: дом → до́ма — not -я, which is for soft masculine nouns like слова́рь → словаря́.'},
+{level:'easy', type:'ending', case:'gen', q:'геро́й → Genitive singular ("of the hero")', opts:['геро́я','геро́ю','геро́ев','геро́ем'], a:0, note:'Masculine -й nouns take -я in the Genitive: геро́й → геро́я.'},
+{level:'medium', type:'ending', case:'gen', q:'семья́ → Genitive singular ("of the family")', opts:['семьи́','семьы́','се́мью','семьёй'], a:0, note:'Feminine -я nouns take -и in the Genitive singular: семья́ → семьи́ — not -ы, which is for feminine -а nouns like маши́на → маши́ны.'},
+{level:'medium', type:'ending', case:'gen', q:'фами́лия → Genitive singular ("of the surname")', opts:['фами́лии','фами́лиы','фами́лию','фами́лией'], a:0, note:'Feminine -ия nouns take -ии in the Genitive singular: фами́лия → фами́лии — never -ы, which only follows feminine -а nouns.'},
+{level:'medium', type:'ending', case:'gen', q:'по́ле → Genitive singular ("of the field")', opts:['по́ля','по́ли','по́лю','по́лем'], a:0, note:'Neuter -е nouns take -я in the Genitive singular: по́ле → по́ля — not -и, which is for feminine soft-sign nouns like дверь → две́ри.'},
+{level:'hard', type:'ending', case:'gen', q:'пле́мя (irregular neuter) → Genitive singular ("of the tribe")', opts:['пле́мени','пле́мю','пле́ме','пле́мем'], a:0, note:'Like и́мя and вре́мя, пле́мя inserts -ен- before the ending: пле́мя → пле́мени.'},
+{level:'medium', type:'ending', case:'gen', q:'стол → Genitive PLURAL ("of the tables")', opts:['столо́в','столе́й','столе́в','стол'], a:0, note:'Hard masculine nouns add -ов in the Genitive plural: стол → столо́в — not -ей or -ев, which belong to other noun groups.'},
+{level:'medium', type:'ending', case:'gen', q:'нож → Genitive PLURAL ("of the knives")', opts:['ножо́в','ноже́й','ноже́в','ножи́'], a:1, note:'Masculine nouns ending in ж,ч,ш,щ take -ей, not -ов, in the Genitive plural: нож → ноже́й.'},
+{level:'medium', type:'ending', case:'gen', q:'музе́й → Genitive PLURAL ("of the museums")', opts:['музе́ев','музе́ей','музе́ов','музе́и'], a:0, note:'Masculine -й nouns take -ев, not -ей or -ов, in the Genitive plural: музе́й → музе́ев.'},
+{level:'medium', type:'ending', case:'gen', q:'кни́га → Genitive PLURAL ("of the books")', opts:['книг','кни́гов','кни́гей','кни́ги'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural — not -ов or -ей, which are for masculine nouns: кни́га → книг.'},
+{level:'hard', type:'ending', case:'gen', q:'неде́ля → Genitive PLURAL ("of the weeks")', opts:['неде́ль','неде́лей','неде́лов','неде́ли'], a:0, note:'Feminine -я nouns often replace -я with a soft sign (zero ending) in the Genitive plural: неде́ля → неде́ль — not -ей, which is for soft-sign feminine nouns like дверь.'},
+{level:'hard', type:'ending', case:'gen', q:'дверь → Genitive PLURAL ("of the doors")', opts:['двере́й','две́ров','две́рев','две́ри'], a:0, note:'Feminine soft-sign nouns take -ей in the Genitive plural: дверь → двере́й — not -ов or -ев, which are masculine endings.'},
+{level:'medium', type:'ending', case:'gen', q:'окно́ → Genitive PLURAL ("of the windows")', opts:['о́кон','окно́в','окне́й','окна́'], a:0, note:'Neuter -о nouns take a zero ending in the Genitive plural: окно́ → о́кон — not -ов or -ей, which belong to masculine nouns.'},
+{level:'hard', type:'ending', case:'gen', q:'мо́ре → Genitive PLURAL ("of the seas")', opts:['море́й','мо́ров','мо́рев','мо́ря'], a:0, note:'Neuter -е nouns take -ей in the Genitive plural: мо́ре → море́й — not -ов or -ев, which are masculine endings.'},
+{level:'hard', type:'ending', case:'gen', q:'письмо́ → Genitive PLURAL, with a fleeting vowel ("of the letters")', opts:['пи́сем','письмо́в','письме́й','письма́'], a:0, note:'Neuter -о takes a zero ending, and a fleeting е breaks up the final consonant cluster: письмо́ → пи́сем — not -ов or -ей.'},
+
+// ---- large expansion: many more Genitive singular/plural practice nouns ----
+{level:'easy', type:'ending', case:'gen', q:'телефо́н (telephone) → Genitive singular', opts:['телефо́на','телефо́ну','телефо́не','телефо́ном'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: телефо́н → телефо́на.'},
+{level:'easy', type:'ending', case:'gen', q:'телефо́н (telephone) → Genitive PLURAL', opts:['телефо́нов','телефо́ней','телефо́нев','телефо́н'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: телефо́н → телефо́нов.'},
+{level:'easy', type:'ending', case:'gen', q:'авто́бус (bus) → Genitive singular', opts:['авто́буса','авто́бусу','авто́бусе','авто́бусом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: авто́бус → авто́буса.'},
+{level:'easy', type:'ending', case:'gen', q:'авто́бус (bus) → Genitive PLURAL', opts:['авто́бусов','авто́бусей','авто́бусев','авто́бус'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: авто́бус → авто́бусов.'},
+{level:'medium', type:'ending', case:'gen', q:'компью́тер (computer) → Genitive singular', opts:['компью́тера','компью́теру','компью́тере','компью́тером'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: компью́тер → компью́тера.'},
+{level:'medium', type:'ending', case:'gen', q:'компью́тер (computer) → Genitive PLURAL', opts:['компью́теров','компью́терей','компью́терев','компью́тер'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: компью́тер → компью́теров.'},
+{level:'medium', type:'ending', case:'gen', q:'журна́л (magazine) → Genitive singular', opts:['журна́ла','журна́лу','журна́ле','журна́лом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: журна́л → журна́ла.'},
+{level:'medium', type:'ending', case:'gen', q:'журна́л (magazine) → Genitive PLURAL', opts:['журна́лов','журна́лей','журна́лев','журна́л'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: журна́л → журна́лов.'},
+{level:'hard', type:'ending', case:'gen', q:'заво́д (factory) → Genitive singular', opts:['заво́да','заво́ду','заво́де','заво́дом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: заво́д → заво́да.'},
+{level:'hard', type:'ending', case:'gen', q:'заво́д (factory) → Genitive PLURAL', opts:['заво́дов','заво́дей','заво́дев','заво́д'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: заво́д → заво́дов.'},
+{level:'easy', type:'ending', case:'gen', q:'па́спорт (passport) → Genitive singular', opts:['па́спорта','па́спорту','па́спорте','па́спортом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: па́спорт → па́спорта.'},
+{level:'easy', type:'ending', case:'gen', q:'па́спорт (passport) → Genitive PLURAL', opts:['па́спортов','па́спортей','па́спортев','па́спорт'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: па́спорт → па́спортов.'},
+{level:'easy', type:'ending', case:'gen', q:'костю́м (suit) → Genitive singular', opts:['костю́ма','костю́му','костю́ме','костю́мом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: костю́м → костю́ма.'},
+{level:'easy', type:'ending', case:'gen', q:'костю́м (suit) → Genitive PLURAL', opts:['костю́мов','костю́мей','костю́мев','костю́м'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: костю́м → костю́мов.'},
+{level:'medium', type:'ending', case:'gen', q:'стака́н (glass) → Genitive singular', opts:['стака́на','стака́ну','стака́не','стака́ном'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: стака́н → стака́на.'},
+{level:'medium', type:'ending', case:'gen', q:'стака́н (glass) → Genitive PLURAL', opts:['стака́нов','стака́ней','стака́нев','стака́н'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: стака́н → стака́нов.'},
+{level:'medium', type:'ending', case:'gen', q:'уро́к (lesson) → Genitive singular', opts:['уро́ка','уро́ку','уро́ке','уро́ком'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: уро́к → уро́ка.'},
+{level:'medium', type:'ending', case:'gen', q:'уро́к (lesson) → Genitive PLURAL', opts:['уро́ков','уро́кей','уро́кев','уро́к'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: уро́к → уро́ков.'},
+{level:'hard', type:'ending', case:'gen', q:'вопро́с (question) → Genitive singular', opts:['вопро́са','вопро́су','вопро́се','вопро́сом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: вопро́с → вопро́са.'},
+{level:'hard', type:'ending', case:'gen', q:'вопро́с (question) → Genitive PLURAL', opts:['вопро́сов','вопро́сей','вопро́сев','вопро́с'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: вопро́с → вопро́сов.'},
+{level:'easy', type:'ending', case:'gen', q:'отве́т (answer) → Genitive singular', opts:['отве́та','отве́ту','отве́те','отве́том'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: отве́т → отве́та.'},
+{level:'easy', type:'ending', case:'gen', q:'отве́т (answer) → Genitive PLURAL', opts:['отве́тов','отве́тей','отве́тев','отве́т'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: отве́т → отве́тов.'},
+{level:'easy', type:'ending', case:'gen', q:'биле́т (ticket) → Genitive singular', opts:['биле́та','биле́ту','биле́те','биле́том'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: биле́т → биле́та.'},
+{level:'easy', type:'ending', case:'gen', q:'биле́т (ticket) → Genitive PLURAL', opts:['биле́тов','биле́тей','биле́тев','биле́т'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: биле́т → биле́тов.'},
+{level:'medium', type:'ending', case:'gen', q:'но́мер (hotel room / number) → Genitive singular', opts:['но́мера','но́меру','но́мере','но́мером'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: но́мер → но́мера.'},
+{level:'medium', type:'ending', case:'gen', q:'но́мер (hotel room / number) → Genitive PLURAL', opts:['но́меров','но́мерей','но́мерев','но́мер'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: но́мер → но́меров.'},
+{level:'medium', type:'ending', case:'gen', q:'час (hour) → Genitive singular', opts:['часа́','часу́','ча́се','часо́м'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: час → часа́.'},
+{level:'medium', type:'ending', case:'gen', q:'час (hour) → Genitive PLURAL', opts:['часо́в','часе́й','часе́в','час'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: час → часо́в.'},
+{level:'hard', type:'ending', case:'gen', q:'сад (garden) → Genitive singular', opts:['са́да','са́ду','са́де','са́дом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: сад → са́да.'},
+{level:'hard', type:'ending', case:'gen', q:'сад (garden) → Genitive PLURAL', opts:['садо́в','саде́й','са́дев','сад'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: сад → садо́в.'},
+{level:'easy', type:'ending', case:'gen', q:'лес (forest) → Genitive singular', opts:['ле́са','ле́су','ле́се','ле́сом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: лес → ле́са.'},
+{level:'easy', type:'ending', case:'gen', q:'лес (forest) → Genitive PLURAL', opts:['лесо́в','лесе́й','лесе́в','лес'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: лес → лесо́в.'},
+{level:'easy', type:'ending', case:'gen', q:'бе́рег (shore) → Genitive singular', opts:['бе́рега','бе́регу','бе́реге','бе́регом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: бе́рег → бе́рега.'},
+{level:'easy', type:'ending', case:'gen', q:'бе́рег (shore) → Genitive PLURAL', opts:['берего́в','береге́й','береге́в','бе́рег'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: бе́рег → берего́в.'},
+{level:'medium', type:'ending', case:'gen', q:'о́стров (island) → Genitive singular', opts:['о́строва','о́строву','о́строве','о́стровом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: о́стров → о́строва.'},
+{level:'medium', type:'ending', case:'gen', q:'о́стров (island) → Genitive PLURAL', opts:['острово́в','острове́й','о́стровев','о́стров'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: о́стров → острово́в.'},
+{level:'medium', type:'ending', case:'gen', q:'самолёт (airplane) → Genitive singular', opts:['самолёта','самолёту','самолёте','самолётом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: самолёт → самолёта.'},
+{level:'medium', type:'ending', case:'gen', q:'самолёт (airplane) → Genitive PLURAL', opts:['самолётов','самолётей','самолётев','самолёт'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: самолёт → самолётов.'},
+{level:'hard', type:'ending', case:'gen', q:'по́езд (train) → Genitive singular', opts:['по́езда','по́езду','по́езде','по́ездом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: по́езд → по́езда.'},
+{level:'hard', type:'ending', case:'gen', q:'по́езд (train) → Genitive PLURAL', opts:['поездо́в','поезде́й','по́ездев','по́езд'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: по́езд → поездо́в.'},
+{level:'easy', type:'ending', case:'gen', q:'велосипе́д (bicycle) → Genitive singular', opts:['велосипе́да','велосипе́ду','велосипе́де','велосипе́дом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: велосипе́д → велосипе́да.'},
+{level:'easy', type:'ending', case:'gen', q:'велосипе́д (bicycle) → Genitive PLURAL', opts:['велосипе́дов','велосипе́дей','велосипе́дев','велосипе́д'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: велосипе́д → велосипе́дов.'},
+{level:'easy', type:'ending', case:'gen', q:'телеви́зор (TV) → Genitive singular', opts:['телеви́зора','телеви́зору','телеви́зоре','телеви́зором'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: телеви́зор → телеви́зора.'},
+{level:'easy', type:'ending', case:'gen', q:'телеви́зор (TV) → Genitive PLURAL', opts:['телеви́зоров','телеви́зорей','телеви́зорев','телеви́зор'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: телеви́зор → телеви́зоров.'},
+{level:'medium', type:'ending', case:'gen', q:'холоди́льник (refrigerator) → Genitive singular', opts:['холоди́льника','холоди́льнику','холоди́льнике','холоди́льником'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: холоди́льник → холоди́льника.'},
+{level:'medium', type:'ending', case:'gen', q:'холоди́льник (refrigerator) → Genitive PLURAL', opts:['холоди́льников','холоди́льникей','холоди́льникев','холоди́льник'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: холоди́льник → холоди́льников.'},
+{level:'medium', type:'ending', case:'gen', q:'рестора́н (restaurant) → Genitive singular', opts:['рестора́на','рестора́ну','рестора́не','рестора́ном'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: рестора́н → рестора́на.'},
+{level:'medium', type:'ending', case:'gen', q:'рестора́н (restaurant) → Genitive PLURAL', opts:['рестора́нов','рестора́ней','рестора́нев','рестора́н'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: рестора́н → рестора́нов.'},
+{level:'hard', type:'ending', case:'gen', q:'вокза́л (train station) → Genitive singular', opts:['вокза́ла','вокза́лу','вокза́ле','вокза́лом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: вокза́л → вокза́ла.'},
+{level:'hard', type:'ending', case:'gen', q:'вокза́л (train station) → Genitive PLURAL', opts:['вокза́лов','вокза́лей','вокза́лев','вокза́л'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: вокза́л → вокза́лов.'},
+{level:'easy', type:'ending', case:'gen', q:'аэропо́рт (airport) → Genitive singular', opts:['аэропо́рта','аэропо́рту','аэропо́рте','аэропо́ртом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: аэропо́рт → аэропо́рта.'},
+{level:'easy', type:'ending', case:'gen', q:'аэропо́рт (airport) → Genitive PLURAL', opts:['аэропо́ртов','аэропо́ртей','аэропо́ртев','аэропо́рт'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: аэропо́рт → аэропо́ртов.'},
+{level:'easy', type:'ending', case:'gen', q:'бана́н (banana) → Genitive singular', opts:['бана́на','бана́ну','бана́не','бана́ном'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: бана́н → бана́на.'},
+{level:'easy', type:'ending', case:'gen', q:'бана́н (banana) → Genitive PLURAL', opts:['бана́нов','бана́ней','бана́нев','бана́н'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: бана́н → бана́нов.'},
+{level:'medium', type:'ending', case:'gen', q:'апельси́н (orange) → Genitive singular', opts:['апельси́на','апельси́ну','апельси́не','апельси́ном'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: апельси́н → апельси́на.'},
+{level:'medium', type:'ending', case:'gen', q:'апельси́н (orange) → Genitive PLURAL', opts:['апельси́нов','апельси́ней','апельси́нев','апельси́н'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: апельси́н → апельси́нов.'},
+{level:'medium', type:'ending', case:'gen', q:'помидо́р (tomato) → Genitive singular', opts:['помидо́ра','помидо́ру','помидо́ре','помидо́ром'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: помидо́р → помидо́ра.'},
+{level:'medium', type:'ending', case:'gen', q:'помидо́р (tomato) → Genitive PLURAL', opts:['помидо́ров','помидо́рей','помидо́рев','помидо́р'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: помидо́р → помидо́ров.'},
+{level:'hard', type:'ending', case:'gen', q:'за́втрак (breakfast) → Genitive singular', opts:['за́втрака','за́втраку','за́втраке','за́втраком'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: за́втрак → за́втрака.'},
+{level:'hard', type:'ending', case:'gen', q:'за́втрак (breakfast) → Genitive PLURAL', opts:['за́втраков','за́втракей','за́втракев','за́втрак'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: за́втрак → за́втраков.'},
+{level:'easy', type:'ending', case:'gen', q:'обе́д (lunch) → Genitive singular', opts:['обе́да','обе́ду','обе́де','обе́дом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: обе́д → обе́да.'},
+{level:'easy', type:'ending', case:'gen', q:'обе́д (lunch) → Genitive PLURAL', opts:['обе́дов','обе́дей','обе́дев','обе́д'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: обе́д → обе́дов.'},
+{level:'easy', type:'ending', case:'gen', q:'ужи́н (dinner) → Genitive singular', opts:['ужи́на','ужи́ну','ужи́не','ужи́ном'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: ужи́н → ужи́на.'},
+{level:'easy', type:'ending', case:'gen', q:'ужи́н (dinner) → Genitive PLURAL', opts:['ужи́нов','ужи́ней','ужи́нев','ужи́н'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: ужи́н → ужи́нов.'},
+{level:'medium', type:'ending', case:'gen', q:'университе́т (university) → Genitive singular', opts:['университе́та','университе́ту','университе́те','университе́том'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: университе́т → университе́та.'},
+{level:'medium', type:'ending', case:'gen', q:'университе́т (university) → Genitive PLURAL', opts:['университе́тов','университе́тей','университе́тев','университе́т'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: университе́т → университе́тов.'},
+{level:'medium', type:'ending', case:'gen', q:'институ́т (institute) → Genitive singular', opts:['институ́та','институ́ту','институ́те','институ́том'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: институ́т → институ́та.'},
+{level:'medium', type:'ending', case:'gen', q:'институ́т (institute) → Genitive PLURAL', opts:['институ́тов','институ́тей','институ́тев','институ́т'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: институ́т → институ́тов.'},
+{level:'hard', type:'ending', case:'gen', q:'класс (class) → Genitive singular', opts:['кла́сса','кла́ссу','кла́ссе','кла́ссом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: класс → кла́сса.'},
+{level:'hard', type:'ending', case:'gen', q:'класс (class) → Genitive PLURAL', opts:['кла́ссов','кла́ссей','кла́ссев','класс'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: класс → кла́ссов.'},
+{level:'easy', type:'ending', case:'gen', q:'язы́к (language) → Genitive singular', opts:['язы́ка','язы́ку','язы́ке','язы́ком'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: язы́к → язы́ка.'},
+{level:'easy', type:'ending', case:'gen', q:'язы́к (language) → Genitive PLURAL', opts:['язы́ков','язы́кей','язы́кев','язы́к'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: язы́к → язы́ков.'},
+{level:'easy', type:'ending', case:'gen', q:'наро́д (people/nation) → Genitive singular', opts:['наро́да','наро́ду','наро́де','наро́дом'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: наро́д → наро́да.'},
+{level:'easy', type:'ending', case:'gen', q:'наро́д (people/nation) → Genitive PLURAL', opts:['наро́дов','наро́дей','наро́дев','наро́д'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: наро́д → наро́дов.'},
+{level:'medium', type:'ending', case:'gen', q:'ваго́н (train car) → Genitive singular', opts:['ваго́на','ваго́ну','ваго́не','ваго́ном'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: ваго́н → ваго́на.'},
+{level:'medium', type:'ending', case:'gen', q:'ваго́н (train car) → Genitive PLURAL', opts:['ваго́нов','ваго́ней','ваго́нев','ваго́н'], a:0, note:'Hard masculine nouns (not ending in ж,ч,ш,щ) take -ов in the Genitive plural: ваго́н → ваго́нов.'},
+{level:'easy', type:'ending', case:'gen', q:'эта́ж (floor/story) → Genitive singular', opts:['эта́жа','эта́жу','эта́же','эта́ж'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: эта́ж → эта́жа.'},
+{level:'easy', type:'ending', case:'gen', q:'эта́ж (floor/story) → Genitive PLURAL', opts:['эта́жей','эта́жов','эта́жев','эта́ж'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: эта́ж → эта́жей.'},
+{level:'medium', type:'ending', case:'gen', q:'плащ (raincoat) → Genitive singular', opts:['пла́ща','пла́щу','пла́ще','плащ'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: плащ → пла́ща.'},
+{level:'medium', type:'ending', case:'gen', q:'плащ (raincoat) → Genitive PLURAL', opts:['пла́щей','пла́щов','пла́щев','плащ'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: плащ → пла́щей.'},
+{level:'medium', type:'ending', case:'gen', q:'каранда́ш (pencil) → Genitive singular', opts:['каранда́ша','каранда́шу','каранда́ше','каранда́ш'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: каранда́ш → каранда́ша.'},
+{level:'medium', type:'ending', case:'gen', q:'каранда́ш (pencil) → Genitive PLURAL', opts:['каранда́шей','каранда́шов','каранда́шев','каранда́ш'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: каранда́ш → каранда́шей.'},
+{level:'hard', type:'ending', case:'gen', q:'борщ (borscht) → Genitive singular', opts:['бо́рща','бо́рщу','бо́рще','борщ'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: борщ → бо́рща.'},
+{level:'hard', type:'ending', case:'gen', q:'борщ (borscht) → Genitive PLURAL', opts:['бо́рщей','бо́рщов','борще́в','борщ'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: борщ → бо́рщей.'},
+{level:'easy', type:'ending', case:'gen', q:'матч (match/game) → Genitive singular', opts:['ма́тча','ма́тчу','ма́тче','матч'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: матч → ма́тча.'},
+{level:'easy', type:'ending', case:'gen', q:'матч (match/game) → Genitive PLURAL', opts:['ма́тчей','ма́тчов','ма́тчев','матч'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: матч → ма́тчей.'},
+{level:'medium', type:'ending', case:'gen', q:'луч (ray/beam) → Genitive singular', opts:['лу́ча','лу́чу','лу́че','луч'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: луч → лу́ча.'},
+{level:'medium', type:'ending', case:'gen', q:'луч (ray/beam) → Genitive PLURAL', opts:['лу́чей','лу́чов','лу́чев','луч'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: луч → лу́чей.'},
+{level:'medium', type:'ending', case:'gen', q:'ключ (key) → Genitive singular', opts:['клю́ча','клю́чу','клю́че','ключ'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: ключ → клю́ча.'},
+{level:'medium', type:'ending', case:'gen', q:'ключ (key) → Genitive PLURAL', opts:['клю́чей','клю́чов','клю́чев','ключ'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: ключ → клю́чей.'},
+{level:'hard', type:'ending', case:'gen', q:'мяч (ball) → Genitive singular', opts:['мя́ча','мя́чу','мя́че','мяч'], a:0, note:'Hard masculine nouns take -а in the Genitive singular: мяч → мя́ча.'},
+{level:'hard', type:'ending', case:'gen', q:'мяч (ball) → Genitive PLURAL', opts:['мя́чей','мя́чов','мя́чев','мяч'], a:0, note:'Masculine nouns ending in ж,ч,ш,щ take -ей (not -ов) in the Genitive plural: мяч → мя́чей.'},
+{level:'easy', type:'ending', case:'gen', q:'трамва́й (tram) → Genitive singular', opts:['трамва́я','трамва́ю','трамва́е','трамва́й'], a:0, note:'Masculine -й nouns take -я in the Genitive singular: трамва́й → трамва́я.'},
+{level:'easy', type:'ending', case:'gen', q:'трамва́й (tram) → Genitive PLURAL', opts:['трамва́ев','трамва́ей','трамва́ов','трамва́й'], a:0, note:'Masculine -й nouns take -ев in the Genitive plural: трамва́й → трамва́ев.'},
+{level:'medium', type:'ending', case:'gen', q:'слу́чай (case/instance) → Genitive singular', opts:['слу́чая','слу́чаю','слу́чае','слу́чай'], a:0, note:'Masculine -й nouns take -я in the Genitive singular: слу́чай → слу́чая.'},
+{level:'medium', type:'ending', case:'gen', q:'слу́чай (case/instance) → Genitive PLURAL', opts:['слу́чаев','слу́чаей','случа́ов','слу́чай'], a:0, note:'Masculine -й nouns take -ев in the Genitive plural: слу́чай → слу́чаев.'},
+{level:'medium', type:'ending', case:'gen', q:'сара́й (shed) → Genitive singular', opts:['сара́я','сара́ю','сара́е','сара́й'], a:0, note:'Masculine -й nouns take -я in the Genitive singular: сара́й → сара́я.'},
+{level:'medium', type:'ending', case:'gen', q:'сара́й (shed) → Genitive PLURAL', opts:['сара́ев','сара́ей','сара́ов','сара́й'], a:0, note:'Masculine -й nouns take -ев in the Genitive plural: сара́й → сара́ев.'},
+{level:'hard', type:'ending', case:'gen', q:'попуга́й (parrot) → Genitive singular', opts:['попуга́я','попуга́ю','попуга́е','попуга́й'], a:0, note:'Masculine -й nouns take -я in the Genitive singular: попуга́й → попуга́я.'},
+{level:'hard', type:'ending', case:'gen', q:'попуга́й (parrot) → Genitive PLURAL', opts:['попуга́ев','попуга́ей','попуга́ов','попуга́й'], a:0, note:'Masculine -й nouns take -ев in the Genitive plural: попуга́й → попуга́ев.'},
+{level:'hard', type:'ending', case:'gen', q:'край (edge/region) → Genitive singular', opts:['кра́я','кра́ю','кра́е','край'], a:0, note:'Masculine -й nouns take -я in the Genitive singular: край → кра́я.'},
+{level:'hard', type:'ending', case:'gen', q:'край (edge/region) → Genitive PLURAL', opts:['краёв','кра́ей','кра́ов','край'], a:0, note:'Masculine -й nouns take -ев in the Genitive plural: край → краёв.'},
+{level:'hard', type:'ending', case:'gen', q:'бой (fight/battle) → Genitive singular', opts:['бо́я','бо́ю','бо́е','бой'], a:0, note:'Masculine -й nouns take -я in the Genitive singular: бой → бо́я.'},
+{level:'hard', type:'ending', case:'gen', q:'бой (fight/battle) → Genitive PLURAL', opts:['боёв','бое́й','бо́ов','бой'], a:0, note:'Masculine -й nouns take -ев in the Genitive plural: бой → боёв.'},
+{level:'easy', type:'ending', case:'gen', q:'чита́тель (reader) → Genitive singular', opts:['чита́теля','чита́телю','чита́теле','чита́тель'], a:0, note:'Soft masculine nouns take -я in the Genitive singular: чита́тель → чита́теля.'},
+{level:'easy', type:'ending', case:'gen', q:'чита́тель (reader) → Genitive PLURAL', opts:['чита́телей','чита́телев','чита́телов','чита́тель'], a:0, note:'Soft masculine nouns take -ей in the Genitive plural: чита́тель → чита́телей.'},
+{level:'medium', type:'ending', case:'gen', q:'портфе́ль (briefcase) → Genitive singular', opts:['портфе́ля','портфе́лю','портфе́ле','портфе́ль'], a:0, note:'Soft masculine nouns take -я in the Genitive singular: портфе́ль → портфе́ля.'},
+{level:'medium', type:'ending', case:'gen', q:'портфе́ль (briefcase) → Genitive PLURAL', opts:['портфе́лей','портфе́лев','портфе́лов','портфе́ль'], a:0, note:'Soft masculine nouns take -ей in the Genitive plural: портфе́ль → портфе́лей.'},
+{level:'medium', type:'ending', case:'gen', q:'гость (guest) → Genitive singular', opts:['го́стя','го́стю','го́сте','гость'], a:0, note:'Soft masculine nouns take -я in the Genitive singular: гость → го́стя.'},
+{level:'medium', type:'ending', case:'gen', q:'гость (guest) → Genitive PLURAL', opts:['госте́й','го́стев','го́стов','гость'], a:0, note:'Soft masculine nouns take -ей in the Genitive plural: гость → госте́й.'},
+{level:'hard', type:'ending', case:'gen', q:'зверь (beast/animal) → Genitive singular', opts:['зве́ря','зве́рю','зве́ре','зверь'], a:0, note:'Soft masculine nouns take -я in the Genitive singular: зверь → зве́ря.'},
+{level:'hard', type:'ending', case:'gen', q:'зверь (beast/animal) → Genitive PLURAL', opts:['звере́й','зве́рев','зве́ров','зверь'], a:0, note:'Soft masculine nouns take -ей in the Genitive plural: зверь → звере́й.'},
+{level:'hard', type:'ending', case:'gen', q:'ого́нь (fire) → Genitive singular', opts:['огня́','огню́','огне́','ого́нь'], a:0, note:'Soft masculine nouns take -я in the Genitive singular: ого́нь → огня́ (the vowel is "fleeting" and drops before any ending).'},
+{level:'hard', type:'ending', case:'gen', q:'ого́нь (fire) → Genitive PLURAL', opts:['огне́й','огне́в','огно́в','ого́нь'], a:0, note:'Soft masculine nouns take -ей in the Genitive plural: ого́нь → огне́й.'},
+{level:'hard', type:'ending', case:'gen', q:'день (day) → Genitive singular', opts:['дня','дню','дне','день'], a:0, note:'Soft masculine nouns take -я in the Genitive singular: день → дня (the vowel is "fleeting" and drops before any ending).'},
+{level:'hard', type:'ending', case:'gen', q:'день (day) → Genitive PLURAL', opts:['дней','днев','днов','день'], a:0, note:'Soft masculine nouns take -ей in the Genitive plural: день → дней.'},
+{level:'hard', type:'ending', case:'gen', q:'конь (horse) → Genitive singular', opts:['коня́','коню́','коне́','конь'], a:0, note:'Soft masculine nouns take -я in the Genitive singular: конь → коня́.'},
+{level:'hard', type:'ending', case:'gen', q:'конь (horse) → Genitive PLURAL', opts:['коне́й','ко́нев','ко́нов','конь'], a:0, note:'Soft masculine nouns take -ей in the Genitive plural: конь → коне́й.'},
+{level:'easy', type:'ending', case:'gen', q:'шко́ла (school) → Genitive singular', opts:['шко́лы','шко́ле','шко́лу','шко́лой'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: шко́ла → шко́лы.'},
+{level:'easy', type:'ending', case:'gen', q:'шко́ла (school) → Genitive PLURAL', opts:['школ','шко́лов','шко́лей','шко́ла'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: шко́ла → школ.'},
+{level:'easy', type:'ending', case:'gen', q:'газе́та (newspaper) → Genitive singular', opts:['газе́ты','газе́те','газе́ту','газе́той'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: газе́та → газе́ты.'},
+{level:'easy', type:'ending', case:'gen', q:'газе́та (newspaper) → Genitive PLURAL', opts:['газе́т','газето́в','газете́й','газе́та'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: газе́та → газе́т.'},
+{level:'medium', type:'ending', case:'gen', q:'рабо́та (work/job) → Genitive singular', opts:['рабо́ты','рабо́те','рабо́ту','рабо́той'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: рабо́та → рабо́ты.'},
+{level:'medium', type:'ending', case:'gen', q:'рабо́та (work/job) → Genitive PLURAL', opts:['рабо́т','рабо́тов','рабо́тей','рабо́та'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: рабо́та → рабо́т.'},
+{level:'medium', type:'ending', case:'gen', q:'ка́рта (map) → Genitive singular', opts:['ка́рты','ка́рте','ка́рту','ка́ртой'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: ка́рта → ка́рты.'},
+{level:'medium', type:'ending', case:'gen', q:'ка́рта (map) → Genitive PLURAL', opts:['карт','ка́ртов','ка́ртей','ка́рта'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: ка́рта → карт.'},
+{level:'hard', type:'ending', case:'gen', q:'ла́мпа (lamp) → Genitive singular', opts:['ла́мпы','ла́мпе','ла́мпу','ла́мпой'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: ла́мпа → ла́мпы.'},
+{level:'hard', type:'ending', case:'gen', q:'ла́мпа (lamp) → Genitive PLURAL', opts:['ламп','ла́мпов','ла́мпей','ла́мпа'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: ла́мпа → ламп.'},
+{level:'easy', type:'ending', case:'gen', q:'те́ма (theme/topic) → Genitive singular', opts:['те́мы','те́ме','те́му','те́мой'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: те́ма → те́мы.'},
+{level:'easy', type:'ending', case:'gen', q:'те́ма (theme/topic) → Genitive PLURAL', opts:['тем','те́мов','те́мей','те́ма'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: те́ма → тем.'},
+{level:'easy', type:'ending', case:'gen', q:'река́ (river) → Genitive singular', opts:['ре́ки','реке́','реку́','реко́й'], a:0, note:'Feminine -а nouns take -и in the Genitive singular: река́ → ре́ки (the 7-letter rule forces -и here, not -ы).'},
+{level:'easy', type:'ending', case:'gen', q:'река́ (river) → Genitive PLURAL', opts:['рек','ре́ков','ре́кей','река́'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: река́ → рек.'},
+{level:'medium', type:'ending', case:'gen', q:'доро́га (road) → Genitive singular', opts:['доро́ги','доро́ге','доро́гу','доро́гой'], a:0, note:'Feminine -а nouns take -и in the Genitive singular: доро́га → доро́ги (the 7-letter rule forces -и here, not -ы).'},
+{level:'medium', type:'ending', case:'gen', q:'доро́га (road) → Genitive PLURAL', opts:['доро́г','доро́гов','доро́гей','доро́га'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: доро́га → доро́г.'},
+{level:'medium', type:'ending', case:'gen', q:'подру́га (girlfriend) → Genitive singular', opts:['подру́ги','подру́ге','подру́гу','подру́гой'], a:0, note:'Feminine -а nouns take -и in the Genitive singular: подру́га → подру́ги (the 7-letter rule forces -и here, not -ы).'},
+{level:'medium', type:'ending', case:'gen', q:'подру́га (girlfriend) → Genitive PLURAL', opts:['подру́г','подру́гов','подру́гей','подру́га'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: подру́га → подру́г.'},
+{level:'hard', type:'ending', case:'gen', q:'мину́та (minute) → Genitive singular', opts:['мину́ты','мину́те','мину́ту','мину́той'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: мину́та → мину́ты.'},
+{level:'hard', type:'ending', case:'gen', q:'мину́та (minute) → Genitive PLURAL', opts:['мину́т','мину́тов','мину́тей','мину́та'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: мину́та → мину́т.'},
+{level:'easy', type:'ending', case:'gen', q:'страна́ (country) → Genitive singular', opts:['страны́','стране́','страну́','страно́й'], a:0, note:'Feminine -а nouns take -ы in the Genitive singular: страна́ → страны́.'},
+{level:'easy', type:'ending', case:'gen', q:'страна́ (country) → Genitive PLURAL', opts:['стран','страно́в','стране́й','страна́'], a:0, note:'Feminine -а nouns take a zero ending in the Genitive plural: страна́ → стран.'},
+{level:'hard', type:'ending', case:'gen', q:'то́чка (point/dot) → Genitive singular', opts:['то́чки','то́чке','то́чку','то́чкой'], a:0, note:'Feminine -а nouns take -и after the 7-letter rule (к): то́чка → то́чки.'},
+{level:'hard', type:'ending', case:'gen', q:'то́чка (point/dot) → Genitive PLURAL, with a fleeting vowel', opts:['то́чек','то́чков','то́чек ','то́чка'], a:0, note:'A fleeting е is inserted to break up the "чк" cluster: то́чка → то́чек.'},
+{level:'hard', type:'ending', case:'gen', q:'копе́йка (kopeck) → Genitive singular', opts:['копе́йки','копе́йке','копе́йку','копе́йкой'], a:0, note:'Feminine -а nouns take -и after the 7-letter rule (к): копе́йка → копе́йки.'},
+{level:'hard', type:'ending', case:'gen', q:'копе́йка (kopeck) → Genitive PLURAL, with a fleeting vowel', opts:['копе́ек','копе́йков','копе́йкей','копе́йка'], a:0, note:'A fleeting е is inserted to break up the "йк" cluster: копе́йка → копе́ек.'},
+{level:'medium', type:'ending', case:'gen', q:'ста́нция (station) → Genitive singular', opts:['ста́нции','ста́нцию','ста́нцией','ста́нция'], a:0, note:'Feminine -ия nouns take -ии in the Genitive singular: ста́нция → ста́нции.'},
+{level:'medium', type:'ending', case:'gen', q:'ста́нция (station) → Genitive PLURAL', opts:['ста́нций','ста́нции','ста́нциев','ста́нция'], a:0, note:'Feminine -ия nouns take -ий in the Genitive plural: ста́нция → ста́нций (not to be confused with the singular\'s -ии).'},
+{level:'medium', type:'ending', case:'gen', q:'ле́кция (lecture) → Genitive singular', opts:['ле́кции','ле́кцию','ле́кцией','ле́кция'], a:0, note:'Feminine -ия nouns take -ии in the Genitive singular: ле́кция → ле́кции.'},
+{level:'medium', type:'ending', case:'gen', q:'ле́кция (lecture) → Genitive PLURAL', opts:['ле́кций','ле́кции','ле́кциев','ле́кция'], a:0, note:'Feminine -ия nouns take -ий in the Genitive plural: ле́кция → ле́кций (not to be confused with the singular\'s -ии).'},
+{level:'hard', type:'ending', case:'gen', q:'организа́ция (organization) → Genitive singular', opts:['организа́ции','организа́цию','организа́цией','организа́ция'], a:0, note:'Feminine -ия nouns take -ии in the Genitive singular: организа́ция → организа́ции.'},
+{level:'hard', type:'ending', case:'gen', q:'организа́ция (organization) → Genitive PLURAL', opts:['организа́ций','организа́ции','организа́циев','организа́ция'], a:0, note:'Feminine -ия nouns take -ий in the Genitive plural: организа́ция → организа́ций (not to be confused with the singular\'s -ии).'},
+{level:'medium', type:'ending', case:'gen', q:'ку́хня (kitchen) → Genitive singular', opts:['ку́хни','ку́хне','ку́хню','ку́хней'], a:0, note:'Feminine -я nouns take -и in the Genitive singular: ку́хня → ку́хни.'},
+{level:'hard', type:'ending', case:'gen', q:'ку́хня (kitchen) → Genitive PLURAL, with a fleeting vowel', opts:['ку́хонь','ку́хней','кухнёв','ку́хня'], a:0, note:'A fleeting о is inserted and the ending becomes a soft sign: ку́хня → ку́хонь.'},
+{level:'medium', type:'ending', case:'gen', q:'пе́сня (song) → Genitive singular', opts:['пе́сни','пе́сне','пе́сню','пе́сней'], a:0, note:'Feminine -я nouns take -и in the Genitive singular: пе́сня → пе́сни.'},
+{level:'hard', type:'ending', case:'gen', q:'пе́сня (song) → Genitive PLURAL, with a fleeting vowel', opts:['пе́сен','пе́сней','песнёв','пе́сня'], a:0, note:'A fleeting е is inserted before the zero ending: пе́сня → пе́сен.'},
+{level:'medium', type:'ending', case:'gen', q:'ви́шня (cherry) → Genitive singular', opts:['ви́шни','ви́шне','ви́шню','ви́шней'], a:0, note:'Feminine -я nouns take -и in the Genitive singular: ви́шня → ви́шни.'},
+{level:'hard', type:'ending', case:'gen', q:'ви́шня (cherry) → Genitive PLURAL, with a fleeting vowel', opts:['ви́шен','ви́шней','вишнёв','ви́шня'], a:0, note:'A fleeting е is inserted before the zero ending: ви́шня → ви́шен.'},
+{level:'medium', type:'ending', case:'gen', q:'дере́вня (village) → Genitive singular', opts:['дере́вни','дере́вне','дере́вню','дере́вней'], a:0, note:'Feminine -я nouns take -и in the Genitive singular: дере́вня → дере́вни.'},
+{level:'hard', type:'ending', case:'gen', q:'дере́вня (village) → Genitive PLURAL, with a fleeting vowel', opts:['дереве́нь','дере́вней','деревнёв','дере́вня'], a:0, note:'A fleeting е is inserted and the ending becomes a soft sign: дере́вня → дере́вень.'},
+{level:'medium', type:'ending', case:'gen', q:'земля́ → Genitive PLURAL ("of the lands")', opts:['земе́ль','землёй','земль','земля́'], a:0, note:'Feminine -я nouns replace -я with a soft sign in the Genitive plural: земля́ → земе́ль.'},
+{level:'easy', type:'ending', case:'gen', q:'крова́ть (bed) → Genitive singular', opts:['крова́ти','крова́ть','крова́тью','крова́тей'], a:0, note:'Feminine soft-sign nouns take -и in the Genitive singular: крова́ть → крова́ти.'},
+{level:'easy', type:'ending', case:'gen', q:'крова́ть (bed) → Genitive PLURAL', opts:['крова́тей','крова́ти','крова́ть','крова́тями'], a:0, note:'Feminine soft-sign nouns take -ей in the Genitive plural: крова́ть → крова́тей (not to be confused with the singular\'s -и).'},
+{level:'medium', type:'ending', case:'gen', q:'мысль (thought) → Genitive singular', opts:['мы́сли','мысль','мы́слью','мы́слей'], a:0, note:'Feminine soft-sign nouns take -и in the Genitive singular: мысль → мы́сли.'},
+{level:'medium', type:'ending', case:'gen', q:'мысль (thought) → Genitive PLURAL', opts:['мы́слей','мы́сли','мысль','мы́слями'], a:0, note:'Feminine soft-sign nouns take -ей in the Genitive plural: мысль → мы́слей (not to be confused with the singular\'s -и).'},
+{level:'medium', type:'ending', case:'gen', q:'жизнь (life) → Genitive singular', opts:['жи́зни','жизнь','жи́знью','жи́зней'], a:0, note:'Feminine soft-sign nouns take -и in the Genitive singular: жизнь → жи́зни.'},
+{level:'medium', type:'ending', case:'gen', q:'жизнь (life) → Genitive PLURAL', opts:['жи́зней','жи́зни','жизнь','жи́знями'], a:0, note:'Feminine soft-sign nouns take -ей in the Genitive plural: жизнь → жи́зней (not to be confused with the singular\'s -и).'},
+{level:'hard', type:'ending', case:'gen', q:'посте́ль (bedding) → Genitive singular', opts:['посте́ли','посте́ль','посте́лью','посте́лей'], a:0, note:'Feminine soft-sign nouns take -и in the Genitive singular: посте́ль → посте́ли.'},
+{level:'hard', type:'ending', case:'gen', q:'посте́ль (bedding) → Genitive PLURAL', opts:['посте́лей','посте́ли','посте́ль','посте́лями'], a:0, note:'Feminine soft-sign nouns take -ей in the Genitive plural: посте́ль → посте́лей (not to be confused with the singular\'s -и).'},
+{level:'easy', type:'ending', case:'gen', q:'я́блоко (apple) → Genitive singular', opts:['я́блока','я́блоку','я́блоке','я́блоком'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: я́блоко → я́блока.'},
+{level:'easy', type:'ending', case:'gen', q:'я́блоко (apple) → Genitive PLURAL', opts:['я́блок','я́блоков','я́блокей','я́блоко'], a:0, note:'Neuter -о nouns take a zero ending in the Genitive plural: я́блоко → я́блок.'},
+{level:'easy', type:'ending', case:'gen', q:'ме́сто (place) → Genitive singular', opts:['ме́ста','ме́сту','ме́сте','ме́стом'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: ме́сто → ме́ста.'},
+{level:'easy', type:'ending', case:'gen', q:'ме́сто (place) → Genitive PLURAL', opts:['мест','ме́стов','ме́стей','ме́сто'], a:0, note:'Neuter -о nouns take a zero ending in the Genitive plural: ме́сто → мест.'},
+{level:'medium', type:'ending', case:'gen', q:'сло́во (word) → Genitive singular', opts:['сло́ва','сло́ву','сло́ве','сло́вом'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: сло́во → сло́ва.'},
+{level:'medium', type:'ending', case:'gen', q:'сло́во (word) → Genitive PLURAL', opts:['слов','сло́вов','сло́вей','сло́во'], a:0, note:'Neuter -о nouns take a zero ending in the Genitive plural: сло́во → слов.'},
+{level:'medium', type:'ending', case:'gen', q:'де́ло (matter/business) → Genitive singular', opts:['де́ла','де́лу','де́ле','де́лом'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: де́ло → де́ла.'},
+{level:'medium', type:'ending', case:'gen', q:'де́ло (matter/business) → Genitive PLURAL', opts:['дел','де́лов','де́лей','де́ло'], a:0, note:'Neuter -о nouns take a zero ending in the Genitive plural: де́ло → дел.'},
+{level:'hard', type:'ending', case:'gen', q:'лицо́ (face) → Genitive singular', opts:['лица́','лицу́','лице́','лицо́м'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: лицо́ → лица́.'},
+{level:'hard', type:'ending', case:'gen', q:'лицо́ (face) → Genitive PLURAL', opts:['лиц','лицо́в','лице́й','лицо́'], a:0, note:'Neuter -о nouns take a zero ending in the Genitive plural: лицо́ → лиц.'},
+{level:'medium', type:'ending', case:'gen', q:'кре́сло (armchair) → Genitive singular', opts:['кре́сла','кре́слу','кре́слом','кре́сло'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: кре́сло → кре́сла.'},
+{level:'hard', type:'ending', case:'gen', q:'кре́сло (armchair) → Genitive PLURAL, with a fleeting vowel', opts:['кре́сел','кре́слов','кресл','кре́сло'], a:0, note:'A fleeting vowel is inserted to break up the final consonant cluster: кре́сло → кре́сел.'},
+{level:'medium', type:'ending', case:'gen', q:'число́ (number/date) → Genitive singular', opts:['числа́','числу́','число́м','число́'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: число́ → числа́.'},
+{level:'hard', type:'ending', case:'gen', q:'число́ (number/date) → Genitive PLURAL, with a fleeting vowel', opts:['чи́сел','число́в','числ','число́'], a:0, note:'A fleeting vowel is inserted to break up the final consonant cluster: число́ → чи́сел.'},
+{level:'medium', type:'ending', case:'gen', q:'ма́сло (butter/oil) → Genitive singular', opts:['ма́сла','ма́слу','ма́слом','ма́сло'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: ма́сло → ма́сла.'},
+{level:'hard', type:'ending', case:'gen', q:'ма́сло (butter/oil) → Genitive PLURAL, with a fleeting vowel', opts:['ма́сел','ма́слов','масл','ма́сло'], a:0, note:'A fleeting vowel is inserted to break up the final consonant cluster: ма́сло → ма́сел.'},
+{level:'medium', type:'ending', case:'gen', q:'молоко́ (milk) → Genitive singular (partitive: "a glass of milk")', opts:['молока́','молоку́','молоке́','молоко́м'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: молоко́ → молока́.'},
+{level:'medium', type:'ending', case:'gen', q:'мя́со (meat) → Genitive singular (partitive: "a piece of meat")', opts:['мя́са','мя́су','мя́се','мя́сом'], a:0, note:'Neuter -о nouns take -а in the Genitive singular: мя́со → мя́са.'},
+{level:'easy', type:'ending', case:'gen', q:'зда́ние (building) → Genitive singular', opts:['зда́ния','зда́нию','зда́нием','зда́ние'], a:0, note:'Neuter -ие nouns take -я in the Genitive singular: зда́ние → зда́ния.'},
+{level:'easy', type:'ending', case:'gen', q:'зда́ние (building) → Genitive PLURAL', opts:['зда́ний','зда́нией','зда́ниев','зда́ние'], a:0, note:'Neuter -ие nouns take -ий (not -ей) in the Genitive plural: зда́ние → зда́ний.'},
+{level:'medium', type:'ending', case:'gen', q:'упражне́ние (exercise) → Genitive singular', opts:['упражне́ния','упражне́нию','упражне́нием','упражне́ние'], a:0, note:'Neuter -ие nouns take -я in the Genitive singular: упражне́ние → упражне́ния.'},
+{level:'medium', type:'ending', case:'gen', q:'упражне́ние (exercise) → Genitive PLURAL', opts:['упражне́ний','упражне́нией','упражне́ниев','упражне́ние'], a:0, note:'Neuter -ие nouns take -ий (not -ей) in the Genitive plural: упражне́ние → упражне́ний.'},
+{level:'medium', type:'ending', case:'gen', q:'предложе́ние (sentence/offer) → Genitive singular', opts:['предложе́ния','предложе́нию','предложе́нием','предложе́ние'], a:0, note:'Neuter -ие nouns take -я in the Genitive singular: предложе́ние → предложе́ния.'},
+{level:'medium', type:'ending', case:'gen', q:'предложе́ние (sentence/offer) → Genitive PLURAL', opts:['предложе́ний','предложе́нией','предложе́ниев','предложе́ние'], a:0, note:'Neuter -ие nouns take -ий (not -ей) in the Genitive plural: предложе́ние → предложе́ний.'},
+{level:'hard', type:'ending', case:'gen', q:'реше́ние (decision) → Genitive singular', opts:['реше́ния','реше́нию','реше́нием','реше́ние'], a:0, note:'Neuter -ие nouns take -я in the Genitive singular: реше́ние → реше́ния.'},
+{level:'hard', type:'ending', case:'gen', q:'реше́ние (decision) → Genitive PLURAL', opts:['реше́ний','реше́нией','реше́ниев','реше́ние'], a:0, note:'Neuter -ие nouns take -ий (not -ей) in the Genitive plural: реше́ние → реше́ний.'},
+{level:'hard', type:'ending', case:'gen', q:'значе́ние (meaning) → Genitive singular', opts:['значе́ния','значе́нию','значе́нием','значе́ние'], a:0, note:'Neuter -ие nouns take -я in the Genitive singular: значе́ние → значе́ния.'},
+{level:'hard', type:'ending', case:'gen', q:'значе́ние (meaning) → Genitive PLURAL', opts:['значе́ний','значе́нией','значе́ниев','значе́ние'], a:0, note:'Neuter -ие nouns take -ий (not -ей) in the Genitive plural: значе́ние → значе́ний.'},
+{level:'medium', type:'ending', case:'gen', q:'се́рдце (heart) → Genitive singular', opts:['се́рдца','се́рдцу','се́рдцем','се́рдце'], a:0, note:'Neuter -е nouns take -а in the Genitive singular: се́рдце → се́рдца.'},
+{level:'hard', type:'ending', case:'gen', q:'се́рдце (heart) → Genitive PLURAL, with a fleeting vowel', opts:['серде́ц','се́рдев','серд','се́рдце'], a:0, note:'A fleeting е is inserted to break up the final consonant cluster: се́рдце → серде́ц.'},
+{level:'medium', type:'ending', case:'gen', q:'полоте́нце (towel) → Genitive singular', opts:['полоте́нца','полоте́нцу','полоте́нцем','полоте́нце'], a:0, note:'Neuter -е nouns take -а in the Genitive singular: полоте́нце → полоте́нца.'},
+{level:'hard', type:'ending', case:'gen', q:'полоте́нце (towel) → Genitive PLURAL, with a fleeting vowel', opts:['полоте́нец','полоте́нев','полоте́н','полоте́нце'], a:0, note:'A fleeting е is inserted to break up the final consonant cluster: полоте́нце → полоте́нец.'},
+{level:'medium', type:'ending', case:'gen', q:'по́ле (field) → Genitive PLURAL', opts:['поле́й','полёв','по́лов','по́ле'], a:0, note:'Neuter -е nouns take -ей in the Genitive plural: по́ле → поле́й.'},
+{level:'medium', type:'ending', case:'gen', q:'семья́ (family) → Genitive PLURAL', opts:['семе́й','семьёй','семьёв','семья́'], a:0, note:'семья́ has a slightly irregular Genitive plural: семья́ → семе́й (not "семьёй", which is the Instrumental singular).'},
+{level:'medium', type:'ending', case:'gen', q:'фами́лия (surname) → Genitive PLURAL', opts:['фами́лий','фами́лией','фами́лиев','фами́лия'], a:0, note:'Feminine -ия nouns take -ий in the Genitive plural: фами́лия → фами́лий.'},
+{level:'hard', type:'ending', case:'gen', q:'тетра́дь (notebook) → Genitive PLURAL', opts:['тетра́дей','тетра́ди','тетра́дь','тетра́дями'], a:0, note:'Feminine soft-sign nouns take -ей in the Genitive plural: тетра́дь → тетра́дей.'},
+{level:'hard', type:'ending', case:'gen', q:'пле́мя (irregular neuter, tribe) → Genitive PLURAL', opts:['племён','племя́н','племене́й','пле́мя'], a:0, note:'The neuter "-мя" nouns take -ён in the Genitive plural: пле́мя → племён (same pattern as и́мя → имён).'},
+{level:'hard', type:'ending', case:'gen', q:'и́мя (irregular neuter, name) → Genitive PLURAL', opts:['имён','имя́н','имене́й','и́мя'], a:0, note:'The neuter "-мя" nouns take -ён in the Genitive plural: и́мя → имён.'},
+{level:'hard', type:'ending', case:'gen', q:'вре́мя (irregular neuter, time) → Genitive PLURAL', opts:['времён','время́н','вре́меней','вре́мя'], a:0, note:'The neuter "-мя" nouns take -ён in the Genitive plural: вре́мя → времён.'}
+
+];
+
+// ---------------------------------------------------------------
+// SOUND_BANK — the 5/7/8-letter spelling rules, and voiced/voiceless
+// consonant changes (final devoicing + assimilation)
+// topic: 'r5' | 'r7' | 'r8' | 'devoice' | 'voice'
+// ---------------------------------------------------------------
+const SOUND_BANK = [
+// ---- RULE-LEVEL: 7-letter rule (и, never ы) ----
+{level:'easy', topic:'r7', type:'rule', q:'Which seven consonants make up the "7-letter rule" group, after which you never write ы — always и?', opts:['г, к, х, ж, ч, ш, щ','ж, ч, ш, щ, ц','б, в, г, д, ж, з'], a:0, note:'г, к, х, ж, ч, ш, щ — after any of these seven, Russian spelling always uses и, never ы.'},
+{level:'easy', topic:'r7', type:'rule', q:'According to the 7-letter rule, which vowel replaces ы after г, к, х, ж, ч, ш, щ?', opts:['и','е','о'], a:0, note:'кни́ги, ру́ки, ти́хий, хоро́шие — и after all seven letters, with no exceptions.'},
+
+// ---- RULE-LEVEL: 8-letter rule (а/у, never я/ю) ----
+{level:'easy', topic:'r8', type:'rule', q:'The "8-letter rule" group is the same seven letters plus one more. Which letter is added?', opts:['ц','ь','й'], a:0, note:'г, к, х, ж, ч, ш, щ + ц = 8 letters. After any of them, я and ю are never written.'},
+{level:'easy', topic:'r8', type:'rule', q:'According to the 8-letter rule, which vowel replaces я after г, к, х, ж, ч, ш, щ, ц?', opts:['а','о','е'], a:0, note:'ча́шка, жаль, крича́ть — а instead of я after any of the eight letters.'},
+{level:'medium', topic:'r8', type:'rule', q:'According to the 8-letter rule, which vowel replaces ю after г, к, х, ж, ч, ш, щ, ц?', opts:['у','о','и'], a:0, note:'чу́до, щу́ка, кричу́ — у instead of ю after any of the eight letters.'},
+
+// ---- RULE-LEVEL: 5-letter rule (о stressed / е unstressed) ----
+{level:'medium', topic:'r5', type:'rule', q:'The "5-letter rule" applies to a smaller set that excludes г, к, х. Which five letters does it cover?', opts:['ж, ч, ш, щ, ц','г, к, х, ж, ч','б, в, г, д, ж'], a:0, note:'ж, ч, ш, щ, ц — the hissing consonants plus ц. After these five, an unstressed о is never allowed at all; it\'s always replaced by е. A stressed о, on the other hand, is perfectly fine and stays as о.'},
+{level:'medium', topic:'r5', type:'rule', q:'Under the 5-letter rule, what do you write in a STRESSED ending after ж, ч, ш, щ, ц?', opts:['о','е','я'], a:0, note:'A stressed о after these five letters is completely normal and is simply written о: ножо́м, большо́го.'},
+{level:'medium', topic:'r5', type:'rule', q:'Under the 5-letter rule, what do you write in an UNSTRESSED ending after ж, ч, ш, щ, ц?', opts:['е','о','ы'], a:0, note:'An unstressed о can never follow ж, ч, ш, щ, ц — it is always replaced by е: това́рищем, хоро́шего.'},
+
+// ---- APPLIED SPELLING: 7-letter rule words ----
+{level:'easy', topic:'r7', type:'apply', q:'Choose the correctly spelled plural of "рука́" (hand):', opts:['ру́ки','ру́кы'], a:0, note:'к is in the 7-letter group → always и, never ы.'},
+{level:'easy', topic:'r7', type:'apply', q:'Choose the correctly spelled plural of "нога́" (leg):', opts:['но́ги','но́гы'], a:0, note:'г is in the 7-letter group → и, not ы.'},
+{level:'easy', topic:'r7', type:'apply', q:'Choose the correctly spelled masculine adjective meaning "quiet":', opts:['ти́хий','ти́хый'], a:0, note:'х is in the 7-letter group → и, not ы.'},
+{level:'medium', topic:'r7', type:'apply', q:'Choose the correctly spelled masculine adjective meaning "good":', opts:['хоро́ший','хоро́шый'], a:0, note:'ш is in the 7-letter group → и, not ы.'},
+{level:'medium', topic:'r7', type:'apply', q:'Choose the correctly spelled plural of "кни́га" (book):', opts:['кни́ги','кни́гы'], a:0, note:'г is in the 7-letter group → и, not ы.'},
+
+// ---- APPLIED SPELLING: 8-letter rule words ----
+{level:'easy', topic:'r8', type:'apply', q:'Choose the correctly spelled word for "cup":', opts:['ча́шка','чя́шка'], a:0, note:'ш is in the 8-letter group → а, not я.'},
+{level:'easy', topic:'r8', type:'apply', q:'Choose the correctly spelled word for "ball / sphere":', opts:['шар','шяр'], a:0, note:'ш is in the 8-letter group → а, not я.'},
+{level:'medium', topic:'r8', type:'apply', q:'Choose the correctly spelled word for "pike" (the fish):', opts:['щу́ка','щю́ка'], a:0, note:'щ is in the 8-letter group → у, not ю.'},
+{level:'medium', topic:'r8', type:'apply', q:'Choose the correctly spelled 1st-person form of "to shout" (I shout):', opts:['кричу́','кричю́'], a:0, note:'ч is in the 8-letter group → у, not ю.'},
+{level:'medium', topic:'r8', type:'apply', q:'Choose the correctly spelled 1st-person form of "to write" (I write):', opts:['пишу́','пишю́'], a:0, note:'ш is in the 8-letter group → у, not ю.'},
+{level:'hard', topic:'r8', type:'apply', q:'Choose the correctly spelled 1st-person form of "to be silent" (I am silent):', opts:['молчу́','молчю́'], a:0, note:'ч is in the 8-letter group → у, not ю.'},
+{level:'hard', topic:'r8', type:'apply', q:'Choose the correctly spelled word for "a pity" (as in "жаль"):', opts:['жаль','жяль'], a:0, note:'ж is in the 8-letter group → а, not я.'},
+
+// ---- APPLIED SPELLING: 5-letter rule words (stress-dependent) ----
+{level:'hard', topic:'r5', type:'apply', q:'нож (knife) → Instrumental singular ("with a knife"), stress falls on the ENDING:', opts:['ножо́м','ноже́м'], a:0, note:'Stressed → о is allowed here: ножо́м. (An unstressed о would have to become е — it just doesn\'t apply in this word.)'},
+{level:'hard', topic:'r5', type:'apply', q:'това́рищ (comrade) → Instrumental singular ("with a comrade"), stress stays on the STEM:', opts:['това́рищем','това́рищом'], a:0, note:'The ending is unstressed, so о is impossible here — it\'s always replaced by е: това́рищем.'},
+{level:'hard', topic:'r5', type:'apply', q:'па́лец (finger) → Instrumental singular ("with a finger"), stress stays on the STEM:', opts:['па́льцем','па́льцом'], a:0, note:'The ending is unstressed, so о is impossible here — it\'s always replaced by е: па́льцем.'},
+{level:'hard', topic:'r5', type:'apply', q:'хоро́ший (good) → Genitive masc/neut singular, stress stays on the STEM:', opts:['хоро́шего','хоро́шого'], a:0, note:'The ending is unstressed, so о is impossible here — it\'s always replaced by е: хоро́шего.'},
+{level:'hard', topic:'r5', type:'apply', q:'большо́й (big) → Genitive masc/neut singular, stress falls on the ENDING:', opts:['большо́го','больше́го'], a:0, note:'Stressed → о is allowed here: большо́го. (An unstressed о would have to become е — it just doesn\'t apply in this word.)'},
+
+// ---- RULE-LEVEL: voiced/voiceless consonant pairs ----
+{level:'easy', topic:'devoice', type:'rule', q:'At the end of a word, a voiced consonant (б, в, г, д, ж, з) is actually pronounced as:', opts:['its voiceless partner (п, ф, к, т, ш, с)','no change — it stays voiced','a completely different sound'], a:0, note:'Final devoicing: written хлеб, друг, нож — pronounced as if they ended in п, к, ш.'},
+{level:'easy', topic:'devoice', type:'rule', q:'Which consonants have NO voiceless partner and never devoice, even at the end of a word (the sonorants)?', opts:['л, м, н, р, й','х, ц, ч, щ','б, в, г, д'], a:0, note:'Sonorants like л, м, н, р, й are always voiced — they have no voiceless counterpart to shift to.'},
+{level:'medium', topic:'voice', type:'rule', q:'Before a voiced consonant (other than в, л, м, н, р, й), a voiceless consonant typically:', opts:['becomes voiced too (assimilation)','stays voiceless','is dropped entirely'], a:0, note:'Voicing assimilation: сде́лать is pronounced [зде́лать] because с sits before the voiced д.'},
+{level:'medium', topic:'devoice', type:'rule', q:'Before a voiceless consonant, a voiced consonant typically:', opts:['also becomes voiceless (assimilation)','stays voiced','lengthens'], a:0, note:'Devoicing assimilation: ло́жка is pronounced [ло́шка] because ж sits before the voiceless к.'},
+
+// ---- APPLIED: final devoicing ----
+{level:'easy', topic:'devoice', type:'apply', q:'How is the final letter of "хлеб" (bread) actually pronounced?', opts:['[п]','[б]','[ф]'], a:0, note:'Word-final б devoices to [п].'},
+{level:'easy', topic:'devoice', type:'apply', q:'How is the final letter of "год" (year) actually pronounced?', opts:['[т]','[д]','[к]'], a:0, note:'Word-final д devoices to [т].'},
+{level:'easy', topic:'devoice', type:'apply', q:'How is the final letter of "нож" (knife) actually pronounced?', opts:['[ш]','[ж]','[с]'], a:0, note:'Word-final ж devoices to [ш].'},
+{level:'medium', topic:'devoice', type:'apply', q:'How is the final letter of "глаз" (eye) actually pronounced?', opts:['[с]','[з]','[ц]'], a:0, note:'Word-final з devoices to [с].'},
+{level:'medium', topic:'devoice', type:'apply', q:'How is the final letter of "друг" (friend) actually pronounced?', opts:['[к]','[г]','[х]'], a:0, note:'Word-final г devoices to [к].'},
+{level:'medium', topic:'devoice', type:'apply', q:'How is the final letter of "зуб" (tooth) actually pronounced?', opts:['[п]','[б]','[ф]'], a:0, note:'Word-final б devoices to [п].'},
+
+// ---- APPLIED: assimilation (voicing and devoicing before another consonant) ----
+{level:'hard', topic:'voice', type:'apply', q:'In "вокза́л" (train station), how is the к actually pronounced, since it comes right before the voiced з?', opts:['[г]','[к]','[х]'], a:0, note:'Voicing assimilation: к → [г] before a voiced consonant — pronounced [вагза́л].'},
+{level:'hard', topic:'voice', type:'apply', q:'In "сде́лать" (to do), how is the с actually pronounced, since it comes right before the voiced д?', opts:['[з]','[с]','[ш]'], a:0, note:'Voicing assimilation: с → [з] before a voiced consonant — pronounced [зде́лать].'},
+{level:'hard', topic:'voice', type:'apply', q:'In "про́сьба" (request/favor), how is the с actually pronounced, since it comes right before the voiced б?', opts:['[з]','[с]','[ц]'], a:0, note:'Voicing assimilation: с → [з] before a voiced consonant — pronounced [про́зьба].'},
+{level:'hard', topic:'devoice', type:'apply', q:'In "ло́жка" (spoon), how is the ж actually pronounced, since it comes right before the voiceless к?', opts:['[ш]','[ж]','[щ]'], a:0, note:'Devoicing assimilation: ж → [ш] before a voiceless consonant — pronounced [ло́шка].'},
+{level:'hard', topic:'devoice', type:'apply', q:'In "ска́зка" (fairy tale), how is the з actually pronounced, since it comes right before the voiceless к?', opts:['[с]','[з]','[ц]'], a:0, note:'Devoicing assimilation: з → [с] before a voiceless consonant — pronounced [ска́ска].'},
+{level:'hard', topic:'devoice', type:'apply', q:'In "во́дка" (vodka), how is the д actually pronounced, since it comes right before the voiceless к?', opts:['[т]','[д]','[г]'], a:0, note:'Devoicing assimilation: д → [т] before a voiceless consonant — pronounced [во́тка].'},
+{level:'easy', topic:'devoice', type:'apply', q:'How is the final letter of "сад" (garden) actually pronounced?', opts:['[т]','[д]','[з]'], a:0, note:'Word-final д devoices to [т].'},
+{level:'easy', topic:'devoice', type:'apply', q:'How is the final letter of "клуб" (club) actually pronounced?', opts:['[п]','[б]','[ф]'], a:0, note:'Word-final б devoices to [п].'}
+];
+
+// ---------------------------------------------------------------
+// MODE DEFINITIONS
+// ---------------------------------------------------------------
+const GENDER_MODES = {
+  gnovice:  { label:'Novice',   stamp:'No timer', desc:'Base endings only: consonant, –а/–я, –о/–е/–ё, and –мя. Untimed, 10 questions.', levels:['easy'], length:10, timer:0, lives:0 },
+  gfluent:  { label:'Fluent',   stamp:'18s / Q',  desc:'Adds the exceptions: male persons in –а/–я, –тель/–арь, –жь/–чь/–шь/–щь, –ость/–есть. 18s per question.', levels:['easy','medium'], length:10, timer:18, lives:0 },
+  gnative:  { label:'Native',   stamp:'12s / Q',  desc:'The full soft-sign puzzle: –ь for male persons, months, and female persons, all mixed together. 12s per question.', levels:['medium','hard'], length:12, timer:12, lives:0 },
+  gmarathon:{ label:'Marathon', stamp:'3 lives',  desc:'Endless mix of every rule in the table. 3 lives, 12s per question.', levels:['easy','medium','hard'], length:9999, timer:12, lives:3 }
+};
+
+const CASE_MODES_COMBINED = {
+  cnovice:  { label:'Novice',   stamp:'No timer', desc:'Core cases only — Nominative, Accusative, Prepositional. Untimed, 10 questions.', levels:['easy'], length:10, timer:0, lives:0 },
+  cfluent:  { label:'Fluent',   stamp:'20s / Q',  desc:'Adds Genitive & Dative, plus preposition rules. 20 seconds per question.', levels:['easy','medium'], length:10, timer:20, lives:0 },
+  cnative:  { label:'Native',   stamp:'15s / Q',  desc:'All six cases, irregular nouns, animacy quirks. 15 seconds per question.', levels:['medium','hard'], length:12, timer:15, lives:0 },
+  cmarathon:{ label:'Marathon', stamp:'3 lives',  desc:'Random mix, increasing difficulty. 3 lives, 15s per question.', levels:['easy','medium','hard'], length:9999, timer:15, lives:3 }
+};
+
+const CASE_MODES_NUMBERS = {
+  cnumnovice:  { label:'Novice',   stamp:'No timer', desc:'Basic agreement with 1, 2/3/4, and 5+ — Nominative singular, Genitive singular, or Genitive plural. Untimed, 6 questions.', levels:['easy'], length:6, timer:0, lives:0, topics:['numbers'] },
+  cnumfluent:  { label:'Fluent',   stamp:'18s / Q',  desc:'Adds compound numbers like 21, 22, and 25 — agreement follows only the last word. 18s per question.', levels:['easy','medium'], length:10, timer:18, lives:0, topics:['numbers'] },
+  cnumnative:  { label:'Native',   stamp:'12s / Q',  desc:'Adjective agreement, fleeting vowels, and irregular plurals like челове́к and лет. 12s per question.', levels:['medium','hard'], length:10, timer:12, lives:0, topics:['numbers'] },
+  cnummarathon:{ label:'Marathon', stamp:'3 lives',  desc:'Endless mix of every number-agreement pattern. 3 lives, 12s per question.', levels:['easy','medium','hard'], length:9999, timer:12, lives:3, topics:['numbers'] }
+};
+
+const CASE_MODES = Object.assign({}, CASE_MODES_COMBINED, CASE_MODES_NUMBERS);
+
+const SOUND_MODES_COMBINED = {
+  snovice:  { label:'Novice',   stamp:'No timer', desc:'The 7- and 8-letter rules only — which vowel follows г,к,х,ж,ч,ш,щ,ц. Untimed, 10 questions.', levels:['easy'], length:10, timer:0, lives:0 },
+  sfluent:  { label:'Fluent',   stamp:'18s / Q',  desc:'Adds final devoicing — how voiced consonants sound at the end of a word. 18s per question.', levels:['easy','medium'], length:10, timer:18, lives:0 },
+  snative:  { label:'Native',   stamp:'12s / Q',  desc:'The stress-dependent 5-letter rule, plus voicing/devoicing assimilation between consonants. 12s per question.', levels:['medium','hard'], length:12, timer:12, lives:0 },
+  smarathon:{ label:'Marathon', stamp:'3 lives',  desc:'Endless mix of every spelling and pronunciation rule. 3 lives, 12s per question.', levels:['easy','medium','hard'], length:9999, timer:12, lives:3 }
+};
+
+const SOUND_MODES_LETTERS = {
+  sletnovice:  { label:'Novice',   stamp:'No timer', desc:'7- and 8-letter rules only: which vowel follows г,к,х,ж,ч,ш,щ,ц. Untimed, 8 questions.', levels:['easy'], length:8, timer:0, lives:0, topics:['r5','r7','r8'] },
+  sletfluent:  { label:'Fluent',   stamp:'18s / Q',  desc:'More applied spelling practice across the 7- and 8-letter rules. 18s per question.', levels:['easy','medium'], length:10, timer:18, lives:0, topics:['r5','r7','r8'] },
+  sletnative:  { label:'Native',   stamp:'12s / Q',  desc:'Adds the stress-dependent 5-letter rule (о vs е after ж,ч,ш,щ,ц). 12s per question.', levels:['medium','hard'], length:10, timer:12, lives:0, topics:['r5','r7','r8'] },
+  sletmarathon:{ label:'Marathon', stamp:'3 lives',  desc:'Endless mix of just the 5/7/8-letter spelling rules. 3 lives, 12s per question.', levels:['easy','medium','hard'], length:9999, timer:12, lives:3, topics:['r5','r7','r8'] }
+};
+
+const SOUND_MODES_VOICING = {
+  svoicenovice:  { label:'Novice',   stamp:'No timer', desc:'Final devoicing only — how voiced consonants sound at the end of a word. Untimed, 6 questions.', levels:['easy'], length:6, timer:0, lives:0, topics:['devoice','voice'] },
+  svoicefluent:  { label:'Fluent',   stamp:'18s / Q',  desc:'More final-devoicing practice, plus the core voiced/voiceless pairs and rules. 18s per question.', levels:['easy','medium'], length:8, timer:18, lives:0, topics:['devoice','voice'] },
+  svoicenative:  { label:'Native',   stamp:'12s / Q',  desc:'Full consonant assimilation both directions — вокза́л→[вагза́л], ло́жка→[ло́шка]. 12s per question.', levels:['medium','hard'], length:9, timer:12, lives:0, topics:['devoice','voice'] },
+  svoicemarathon:{ label:'Marathon', stamp:'3 lives',  desc:'Endless mix of devoicing and voicing assimilation. 3 lives, 12s per question.', levels:['easy','medium','hard'], length:9999, timer:12, lives:3, topics:['devoice','voice'] }
+};
+
+const SOUND_MODES = Object.assign({}, SOUND_MODES_COMBINED, SOUND_MODES_LETTERS, SOUND_MODES_VOICING);
+
+// ---------------------------------------------------------------
+// COUNTING — numbers are generated on the fly, not from a fixed bank
+// ---------------------------------------------------------------
+const NUM_ONES = ['','оди́н','два','три','четы́ре','пять','шесть','семь','во́семь','де́вять'];
+const NUM_TEENS = ['де́сять','оди́ннадцать','двена́дцать','трина́дцать','четы́рнадцать','пятна́дцать','шестна́дцать','семна́дцать','восемна́дцать','девятна́дцать'];
+const NUM_TENS = ['','','два́дцать','три́дцать','со́рок','пятьдеся́т','шестьдеся́т','се́мьдесят','во́семьдесят','девяно́сто'];
+const NUM_HUNDREDS = ['','сто','две́сти','три́ста','четы́реста','пятьсо́т','шестьсо́т','семьсо́т','восемьсо́т','девятьсо́т'];
+
+function numUnder1000ToRussian(num, feminine){
+  const parts = [];
+  const h = Math.floor(num / 100);
+  const rem = num % 100;
+  if(h > 0) parts.push(NUM_HUNDREDS[h]);
+  if(rem >= 10 && rem < 20){
+    parts.push(NUM_TEENS[rem - 10]);
+  } else {
+    const t = Math.floor(rem / 10);
+    const o = rem % 10;
+    if(t > 0) parts.push(NUM_TENS[t]);
+    if(o === 1) parts.push(feminine ? 'одна́' : 'оди́н');
+    else if(o === 2) parts.push(feminine ? 'две' : 'два');
+    else if(o > 0) parts.push(NUM_ONES[o]);
+  }
+  return parts.join(' ');
+}
+
+function thousandWord(n){
+  if(n === 1) return 'ты́сяча';
+  if(n >= 2 && n <= 4) return 'ты́сячи';
+  return 'ты́сяч';
+}
+
+function numToRussian(n){
+  if(n === 0) return 'ноль';
+  const result = [];
+  const th = Math.floor(n / 1000);
+  const rest = n % 1000;
+  if(th > 0){
+    if(th === 1) result.push('ты́сяча');
+    else { result.push(numUnder1000ToRussian(th, true)); result.push(thousandWord(th)); }
+  }
+  if(rest > 0) result.push(numUnder1000ToRussian(rest, false));
+  return result.filter(Boolean).join(' ').trim();
+}
+
+function randInt(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+function makeCountingQuestion(min, max){
+  const n = randInt(min, max);
+  const correct = numToRussian(n);
+  const candidates = [];
+  const deltaPool = shuffled([1,-1,10,-10,2,-2,20,-20,100,-100,5,-5]);
+  for(const d of deltaPool){
+    const cand = n + d;
+    if(cand >= min && cand <= max && cand !== n){
+      const phrase = numToRussian(cand);
+      if(phrase !== correct && candidates.indexOf(phrase) === -1) candidates.push(phrase);
+    }
+    if(candidates.length >= 3) break;
+  }
+  let guard = 0;
+  while(candidates.length < 3 && guard < 50){
+    guard++;
+    const cand = randInt(min, max);
+    if(cand === n) continue;
+    const phrase = numToRussian(cand);
+    if(phrase !== correct && candidates.indexOf(phrase) === -1) candidates.push(phrase);
+  }
+  const allOpts = shuffled([correct, ...candidates.slice(0,3)]);
+  const aIdx = allOpts.indexOf(correct);
+  return {
+    level: 'easy', type: 'number', case: null,
+    q: 'Which number is this?', numberValue: n,
+    opts: allOpts, a: aIdx,
+    note: n + ' in Russian is "' + correct + '".'
+  };
+}
+
+function generateCountingBatch(min, max, count){
+  const batch = [];
+  for(let i = 0; i < count; i++) batch.push(makeCountingQuestion(min, max));
+  return batch;
+}
+
+const COUNTING_MODES = {
+  numnovice:  { label:'Novice',   stamp:'No timer', desc:'Numbers 1–20. Untimed, 10 questions.', min:1, max:20, length:10, timer:0, lives:0 },
+  numfluent:  { label:'Fluent',   stamp:'15s / Q',  desc:'Numbers 1–100, including all the tens (два́дцать, три́дцать...). 15s per question.', min:1, max:100, length:12, timer:15, lives:0 },
+  numnative:  { label:'Native',   stamp:'10s / Q',  desc:'Numbers 1–1000, including hundreds (две́сти, три́ста...). 10s per question.', min:1, max:1000, length:12, timer:10, lives:0 },
+  nummarathon:{ label:'Marathon', stamp:'3 lives',  desc:'Numbers 1–9999, including thousands with full agreement (две ты́сячи, пять ты́сяч...). 3 lives, 10s per question.', min:1, max:9999, length:9999, timer:10, lives:3 }
+};
+
+// Registry tying each Play track to its question bank + mode set
+const SECTIONS = {
+  gender:   { bank: GENDER_BANK, modes: GENDER_MODES },
+  cases:    { bank: CASE_BANK,  modes: CASE_MODES },
+  sounds:   { bank: SOUND_BANK, modes: SOUND_MODES },
+  counting: { bank: null,       modes: COUNTING_MODES }
+};
+
+const SOUND_TOPIC_BUCKET = { r5:'spelling', r7:'spelling', r8:'spelling', devoice:'sound', voice:'sound' };
+
+// ---------------------------------------------------------------
+// STATE
+// ---------------------------------------------------------------
+let state = null;
+
+function shuffled(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function poolFor(bank, mode){
+  return bank.filter(q => mode.levels.includes(q.level) && (!mode.topics || mode.topics.includes(q.topic)));
+}
+
+function startMode(section, modeKey){
+  const { bank, modes } = SECTIONS[section];
+  const mode = modes[modeKey];
+  let pool = section === 'counting'
+    ? generateCountingBatch(mode.min, mode.max, mode.length === 9999 ? 30 : mode.length)
+    : shuffled(poolFor(bank, mode));
+  state = {
+    section, modeKey, mode,
+    queue: pool,
+    idx: 0,
+    score: 0,
+    streak: 0,
+    bestStreak: 0,
+    lives: mode.lives,
+    correctCount: 0,
+    answeredCount: 0,
+    caseStats: {},
+    genderStats: {m:{correct:0,total:0}, f:{correct:0,total:0}, n:{correct:0,total:0}},
+    soundStats: {spelling:{correct:0,total:0}, sound:{correct:0,total:0}},
+    timerId: null,
+    timeLeft: mode.timer,
+    order: []
+  };
+  Object.keys(CASES).forEach(k => state.caseStats[k] = {correct:0, total:0});
+  showScreen('game');
+  renderQuestion();
+}
+
+function currentQuestion(){
+  const bank = SECTIONS[state.section].bank;
+  if(state.mode.length === 9999){
+    if(state.idx >= state.queue.length){
+      state.queue = state.section === 'counting'
+        ? generateCountingBatch(state.mode.min, state.mode.max, 30)
+        : shuffled(poolFor(bank, state.mode));
+      state.idx = 0;
+    }
+  }
+  return state.queue[state.idx];
+}
+
+
+function renderQuestion(){
+  clearInterval(state.timerId);
+  const q = currentQuestion();
+  if(!q){ return endRound(); }
+
+  document.getElementById('hudScore').textContent = state.score;
+  document.getElementById('hudStreak').textContent = state.streak;
+  document.getElementById('hudQnum').textContent = state.mode.length===9999 ? ('Q '+(state.answeredCount+1)) : ('Q '+(state.idx+1)+' / '+state.mode.length);
+
+  const livesWrap = document.getElementById('hudLivesWrap');
+  if(state.mode.lives > 0){
+    livesWrap.style.display = 'flex';
+    const livesEl = document.getElementById('hudLives');
+    livesEl.innerHTML = '';
+    for(let i=0;i<state.mode.lives;i++){
+      const d = document.createElement('div');
+      d.className = 'life' + (i >= state.lives ? ' lost' : '');
+      livesEl.appendChild(d);
+    }
+  } else {
+    livesWrap.style.display = 'none';
+  }
+
+  const dotsWrap = document.getElementById('progressDots');
+  dotsWrap.innerHTML = '';
+  if(state.mode.length !== 9999){
+    for(let i=0;i<state.mode.length;i++){
+      const d = document.createElement('div');
+      d.className = 'dot';
+      if(state.order[i] === 'correct') d.classList.add('done-correct');
+      else if(state.order[i] === 'wrong') d.classList.add('done-wrong');
+      else if(i === state.idx) d.classList.add('current');
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  let typeLabel;
+  if(q.type === 'rule') typeLabel = 'Rule';
+  else if(q.type === 'ending') typeLabel = 'Ending';
+  else if(q.type === 'word') typeLabel = 'Gender ID';
+  else if(q.type === 'apply') typeLabel = 'Apply the rule';
+  else if(q.type === 'agree') typeLabel = 'Agreement';
+  else if(q.type === 'number') typeLabel = 'Number';
+  else typeLabel = 'Case ID';
+  document.getElementById('qType').textContent = typeLabel;
+
+  const qTextEl = document.getElementById('qText');
+  if(q.type === 'word'){
+    qTextEl.innerHTML = 'What gender is this noun?<div class="qword">'+q.word+'</div><div class="qmeaning">('+q.meaning+')</div>';
+  } else if(q.type === 'number'){
+    qTextEl.innerHTML = 'Which number is this?<div class="qword" style="color:var(--indigo);">'+q.numberValue+'</div>';
+  } else {
+    qTextEl.innerHTML = q.q;
+  }
+
+
+  document.getElementById('qFeedback').className = 'feedback';
+  document.getElementById('qFeedback').textContent = '';
+  document.getElementById('nextBtn').className = 'next-btn';
+
+  const optsWrap = document.getElementById('qOptions');
+  optsWrap.innerHTML = '';
+  const optionOrder = q.opts.map((text,i)=>({text,i}));
+  shuffled(optionOrder).forEach(opt=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.textContent = opt.text;
+    btn.onclick = () => selectAnswer(q, opt.i, btn);
+    optsWrap.appendChild(btn);
+  });
+
+  const track = document.getElementById('timerTrack');
+  if(state.mode.timer > 0){
+    track.style.display = 'block';
+    state.timeLeft = state.mode.timer;
+    const fill = document.getElementById('timerFill');
+    fill.style.width = '100%';
+    state.timerId = setInterval(()=>{
+      state.timeLeft -= 0.1;
+      const pct = Math.max(0, state.timeLeft / state.mode.timer * 100);
+      fill.style.width = pct + '%';
+      if(state.timeLeft <= 0){
+        clearInterval(state.timerId);
+        timeoutAnswer(q);
+      }
+    }, 100);
+  } else {
+    track.style.display = 'none';
+  }
+}
+
+function timeoutAnswer(q){
+  const btns = document.querySelectorAll('#qOptions .opt');
+  btns.forEach(b => { b.disabled = true; if(b.textContent === q.opts[q.a]) b.classList.add('reveal'); });
+  registerResult(q, false, 0);
+  sfxWrong();
+  document.getElementById('qFeedback').className = 'feedback show';
+  document.getElementById('qFeedback').textContent = "Time's up. " + q.note;
+  document.getElementById('nextBtn').className = 'next-btn show';
+}
+
+function selectAnswer(q, chosenIdx, btnEl){
+  clearInterval(state.timerId);
+  const btns = document.querySelectorAll('#qOptions .opt');
+  const isCorrect = chosenIdx === q.a;
+  btns.forEach(b => {
+    b.disabled = true;
+    if(b.textContent === q.opts[q.a]) b.classList.add('correct');
+  });
+  if(!isCorrect) btnEl.classList.add('wrong');
+
+  isCorrect ? sfxCorrect() : sfxWrong();
+  registerResult(q, isCorrect, state.timeLeft);
+
+  const fb = document.getElementById('qFeedback');
+  fb.className = 'feedback show';
+  fb.textContent = (isCorrect ? 'Correct. ' : 'Not quite. ') + q.note;
+  document.getElementById('nextBtn').className = 'next-btn show';
+}
+
+function registerResult(q, isCorrect, timeLeft){
+  state.answeredCount++;
+  if(state.section === 'cases' && q.case && state.caseStats[q.case]){
+    state.caseStats[q.case].total++;
+    if(isCorrect) state.caseStats[q.case].correct++;
+  }
+  if(state.section === 'gender' && q.gender && state.genderStats[q.gender]){
+    state.genderStats[q.gender].total++;
+    if(isCorrect) state.genderStats[q.gender].correct++;
+  }
+  if(state.section === 'sounds' && q.topic){
+    const bucket = SOUND_TOPIC_BUCKET[q.topic];
+    if(bucket && state.soundStats[bucket]){
+      state.soundStats[bucket].total++;
+      if(isCorrect) state.soundStats[bucket].correct++;
+    }
+  }
+  if(isCorrect){
+    state.correctCount++;
+    state.streak++;
+    state.bestStreak = Math.max(state.bestStreak, state.streak);
+    let pts = 100;
+    if(state.mode.timer > 0) pts += Math.round((timeLeft / state.mode.timer) * 50);
+    if(state.streak > 0 && state.streak % 3 === 0) pts += 50;
+    state.score += pts;
+    state.order[state.idx] = 'correct';
+  } else {
+    state.streak = 0;
+    state.order[state.idx] = 'wrong';
+    if(state.mode.lives > 0) state.lives--;
+  }
+  document.getElementById('hudScore').textContent = state.score;
+  document.getElementById('hudStreak').textContent = state.streak;
+}
+
+document.getElementById('nextBtn').onclick = () => {
+  state.idx++;
+  if(state.mode.lives > 0 && state.lives <= 0){ return endRound(); }
+  if(state.mode.length !== 9999 && state.idx >= state.mode.length){ return endRound(); }
+  renderQuestion();
+};
+
+document.getElementById('quitBtn').onclick = () => { if(confirm('Quit this round?')) endRound(); };
+
+function endRound(){
+  clearInterval(state.timerId);
+  showScreen('end');
+  const lostMarathon = state.mode.lives > 0 && state.lives <= 0;
+  lostMarathon ? sfxMarathonLose() : sfxSetComplete();
+  document.getElementById('endHeadline').textContent = SECTIONS[state.section].modes[state.modeKey].label + ' round complete';
+  document.getElementById('endScore').textContent = state.score;
+  document.getElementById('endCorrect').textContent = state.correctCount + ' / ' + state.answeredCount;
+  document.getElementById('endStreak').textContent = state.bestStreak;
+  const acc = state.answeredCount ? Math.round(state.correctCount/state.answeredCount*100) : 0;
+  document.getElementById('endAccuracy').textContent = acc + '%';
+
+  const wrap = document.getElementById('endVisualWrap');
+  if(state.section === 'counting'){
+    wrap.innerHTML = '';
+    return;
+  }
+  wrap.innerHTML = '<div class="wheel-wrap" id="endVisual"></div>';
+  const target = document.getElementById('endVisual');
+  if(state.section === 'cases'){
+    const accMap = {};
+    Object.entries(state.caseStats).forEach(([k,v])=>{ accMap[k] = v.total ? v.correct/v.total : null; });
+    buildWheel(target, accMap);
+  } else if(state.section === 'sounds'){
+    buildSoundBars(target, state.soundStats);
+  } else {
+    buildGenderBars(target, state.genderStats);
+  }
+}
+
+document.getElementById('playAgainBtn').onclick = () => startMode(state.section, state.modeKey);
+document.getElementById('menuBtn').onclick = () => showScreen('start');
+
+function showScreen(name){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+}
+
+// ---------------------------------------------------------------
+// BUILD START SCREEN
+// ---------------------------------------------------------------
+function buildModeGrid(containerId, modes, section){
+  const grid = document.getElementById(containerId);
+  grid.innerHTML = '';
+  Object.entries(modes).forEach(([key, m])=>{
+    const card = document.createElement('button');
+    card.className = 'mode-card';
+    card.innerHTML = '<div class="stamp">'+m.stamp+'</div><h3>'+m.label+'</h3><p>'+m.desc+'</p>';
+    withUISound(card, () => startMode(section, key));
+    grid.appendChild(card);
+  });
+}
+
+// ---------------------------------------------------------------
+// LEARN SECTION — static reference material, no scoring/timer
+// ---------------------------------------------------------------
+const LESSONS = {
+
+gender: {
+  title: 'Noun Gender — Reference Table',
+  html: `
+    <p class="lesson-intro">Every Russian noun is masculine, feminine, or neuter. Most of the time the ending tells you which — but a handful of endings depend on meaning instead. Here is the full rule set the Gender quiz is built from.</p>
+    <h4>Rules that depend on the ending alone</h4>
+    <table class="lesson-table">
+      <tr><th>Ending</th><th>Gender</th><th>Example</th></tr>
+      <tr><td>a consonant (incl. –й)</td><td>Masculine</td><td class="ru">бар, парк, телефо́н, музе́й</td></tr>
+      <tr><td>–тель, –арь</td><td>Masculine</td><td class="ru">учи́тель, слова́рь</td></tr>
+      <tr><td>–а, –я</td><td>Feminine</td><td class="ru">маши́на, земля́</td></tr>
+      <tr><td>–жь, –чь, –шь, –щь</td><td>Feminine</td><td class="ru">ночь, по́мощь, мышь</td></tr>
+      <tr><td>–ость, –есть</td><td>Feminine</td><td class="ru">но́вость, све́жесть</td></tr>
+      <tr><td>–о, –е, –ё</td><td>Neuter</td><td class="ru">ме́сто, мо́ре, бельё</td></tr>
+      <tr><td>–мя</td><td>Neuter</td><td class="ru">и́мя, вре́мя</td></tr>
+    </table>
+    <h4>Rules where meaning overrides the ending</h4>
+    <p class="lesson-note">The –а/–я and –ь endings are ambiguous once you factor in what the word actually refers to. Meaning always wins:</p>
+    <table class="lesson-table">
+      <tr><th>Ending</th><th>Condition</th><th>Gender</th><th>Example</th></tr>
+      <tr><td>–а, –я</td><td>means a male person</td><td>Masculine</td><td class="ru">мужчи́на, па́па, де́душка, дя́дя</td></tr>
+      <tr><td>soft sign –ь</td><td>means a male person</td><td>Masculine</td><td class="ru">царь, князь</td></tr>
+      <tr><td>soft sign –ь</td><td>is a month of the year</td><td>Masculine</td><td class="ru">октя́брь, апре́ль</td></tr>
+      <tr><td>soft sign –ь</td><td>means a female person</td><td>Feminine</td><td class="ru">мать, дочь</td></tr>
+    </table>
+    <p class="lesson-note">Everything else ending in –ь has to be memorized noun by noun — the letter alone doesn't tell you the gender.</p>
+  `
+},
+
+cases: {
+  title: 'The Six Cases — Reference Table',
+  html: `
+    <p class="lesson-intro">Russian nouns, pronouns, and adjectives change form depending on their job in the sentence. Each case answers its own question and is triggered by its own set of prepositions.</p>
+    <table class="lesson-table">
+      <tr><th>Case</th><th>Questions</th><th>Key preps</th><th>Typical job</th></tr>
+      <tr><td><strong>Nominative</strong><br><span class="ru">Имени́тельный</span></td><td>кто? что?</td><td>—</td><td>Subject of the sentence; the dictionary form.</td></tr>
+      <tr><td><strong>Genitive</strong><br><span class="ru">Роди́тельный</span></td><td>кого́? чего́?</td><td>без, для, до, из, кро́ме, у, от, по́сле, вме́сто, ра́ди</td><td>Possession, absence (нет), "of", after most non-motion prepositions.</td></tr>
+      <tr><td><strong>Dative</strong><br><span class="ru">Да́тельный</span></td><td>кому́? чему́?</td><td>к, по, согла́сно</td><td>Indirect object — the receiver of an action.</td></tr>
+      <tr><td><strong>Accusative</strong><br><span class="ru">Вини́тельный</span></td><td>кого́? что?</td><td>в, на (motion), про, че́рез</td><td>Direct object; destination of motion.</td></tr>
+      <tr><td><strong>Instrumental</strong><br><span class="ru">Твори́тельный</span></td><td>кем? чем?</td><td>с, над, под, пе́ред, ме́жду</td><td>The means or company something is done with.</td></tr>
+      <tr><td><strong>Prepositional</strong><br><span class="ru">Предло́жный</span></td><td>о ком? о чём?</td><td>в, на (location), о, при</td><td>Location, or the topic of "about".</td></tr>
+    </table>
+    <p class="lesson-note"><strong>Animacy rule:</strong> for animate masculine nouns, the Accusative singular reuses the Genitive form — Я ви́жу дру́га ("I see my friend") looks Genitive but is functioning as Accusative.</p>
+  `
+},
+
+verbs: {
+  title: 'Verb Conjugation — Reference Tables',
+  html: `
+    <p class="lesson-intro">Russian verbs conjugate for person and tense, come in aspect pairs (imperfective/perfective), and split into two regular conjugation patterns — plus a short list of everyday irregular verbs worth memorizing individually.</p>
+
+    <h4>Aspect &amp; conjugation groups</h4>
+    <div class="pill-row">
+      <div class="pill">Imperfective — ongoing/repeated</div>
+      <div class="pill">Perfective — completed, one-time</div>
+      <div class="pill">1st conjugation — –ешь/–ет/–ем/–ете/–ут(ют)</div>
+      <div class="pill">2nd conjugation — –ишь/–ит/–им/–ите/–ат(ят)</div>
+    </div>
+    <p class="lesson-note">Most verbs come in pairs like чита́ть / прочита́ть — same meaning, different aspect. The imperfective builds its future by adding "быть" as an auxiliary (бу́ду чита́ть); the perfective's present-tense conjugation already means future (прочита́ю = "I will read").</p>
+
+    <h4>Regular · 1st conjugation — чита́ть (to read, imperfective)</h4>
+    <table class="lesson-table">
+      <tr><th>Form</th><th>Value</th></tr>
+      <tr><td>Infinitive</td><td class="ru">чита́ть</td></tr>
+      <tr><td>Present — я / ты / он / мы / вы / они́</td><td class="ru">чита́ю, чита́ешь, чита́ет, чита́ем, чита́ете, чита́ют</td></tr>
+      <tr><td>Past — m / f / n / pl</td><td class="ru">чита́л, чита́ла, чита́ло, чита́ли</td></tr>
+      <tr><td>Imperative — informal / formal-plural</td><td class="ru">чита́й / чита́йте</td></tr>
+      <tr><td>Future (imperfective, compound)</td><td class="ru">бу́ду чита́ть, бу́дешь чита́ть, бу́дет чита́ть, бу́дем чита́ть, бу́дете чита́ть, бу́дут чита́ть</td></tr>
+    </table>
+
+    <h4>Regular · 2nd conjugation — говори́ть / сказа́ть (to speak / to say)</h4>
+    <table class="lesson-table">
+      <tr><th>Form</th><th>говори́ть (imperfective)</th><th>сказа́ть (perfective)</th></tr>
+      <tr><td>Present / Future</td><td class="ru">говорю́, говори́шь, говори́т, говори́м, говори́те, говоря́т</td><td class="ru">скажу́, ска́жешь, ска́жет, ска́жем, ска́жете, ска́жут</td></tr>
+      <tr><td>Past — m / f / n / pl</td><td class="ru">говори́л, говори́ла, говори́ло, говори́ли</td><td class="ru">сказа́л, сказа́ла, сказа́ло, сказа́ли</td></tr>
+      <tr><td>Imperative</td><td class="ru">говори́ / говори́те</td><td class="ru">скажи́ / скажи́те</td></tr>
+    </table>
+    <p class="lesson-note">Notice that сказа́ть has no separate compound future — its present-tense conjugation (скажу́, ска́жешь...) already carries future meaning because the verb is perfective.</p>
+
+    <h4>Irregular verbs worth memorizing</h4>
+    <table class="lesson-table">
+      <tr><th>Verb</th><th>Present</th><th>Past (m/f/n/pl)</th><th>Imperative</th><th>What's irregular</th></tr>
+      <tr><td class="ru">быть (to be)</td><td>omitted in the present (implied "is")</td><td class="ru">был, была́, бы́ло, бы́ли</td><td class="ru">будь / бу́дьте</td><td>No present tense of its own; supplies бу́ду/бу́дешь... as the future-tense auxiliary for every imperfective verb.</td></tr>
+      <tr><td class="ru">хоте́ть (to want)</td><td class="ru">хочу́, хо́чешь, хо́чет, хоти́м, хоти́те, хотя́т</td><td class="ru">хоте́л, хоте́ла, хоте́ло, хоте́ли</td><td>(rarely used)</td><td>Mixed conjugation: singular forms follow the 1st pattern, plural forms follow the 2nd.</td></tr>
+      <tr><td class="ru">идти́ (to go, on foot)</td><td class="ru">иду́, идёшь, идёт, идём, идёте, иду́т</td><td class="ru">шёл, шла, шло, шли</td><td class="ru">иди́ / иди́те</td><td>The past tense uses a completely different stem (шёл) from the present (ид-).</td></tr>
+      <tr><td class="ru">есть (to eat)</td><td class="ru">ем, ешь, ест, еди́м, еди́те, едя́т</td><td class="ru">ел, е́ла, е́ло, е́ли</td><td class="ru">ешь / е́шьте</td><td>Doesn't follow either regular conjugation pattern — its own irregular set of endings.</td></tr>
+    </table>
+    <p class="lesson-note"><strong>Imperative formation rule of thumb:</strong> drop the present-tense ending from a "они́" form and add –й (after a vowel), or –и/–ь (after a consonant, depending on stress) for "ты"; add –те for "вы"/formal or plural.</p>
+  `
+},
+
+spelling: {
+  title: 'The 5/7/8-Letter Spelling Rules',
+  html: `
+    <p class="lesson-intro">Three named rules govern which vowel can follow certain consonants, no matter what ending grammar would otherwise call for. They're nested inside each other — 7 letters, plus one more makes 8, and a different subset of 5 handles a separate о/е alternation.</p>
+
+    <h4>7-letter rule — и, never ы</h4>
+    <div class="pill-row">
+      <div class="pill">г</div><div class="pill">к</div><div class="pill">х</div><div class="pill">ж</div><div class="pill">ч</div><div class="pill">ш</div><div class="pill">щ</div>
+    </div>
+    <p class="lesson-note">After any of these seven consonants, Russian spelling always uses <strong>и</strong> — <strong>ы</strong> is impossible here, in any word, in any ending.</p>
+    <table class="lesson-table">
+      <tr><th>Wrong</th><th>Right</th><th>Why</th></tr>
+      <tr><td class="ru">кни́гы</td><td class="ru">кни́ги</td><td>г is in the group</td></tr>
+      <tr><td class="ru">ру́кы</td><td class="ru">ру́ки</td><td>к is in the group</td></tr>
+      <tr><td class="ru">ти́хый</td><td class="ru">ти́хий</td><td>х is in the group</td></tr>
+      <tr><td class="ru">хоро́шый</td><td class="ru">хоро́ший</td><td>ш is in the group</td></tr>
+    </table>
+
+    <h4>8-letter rule — а/у, never я/ю</h4>
+    <div class="pill-row">
+      <div class="pill">г</div><div class="pill">к</div><div class="pill">х</div><div class="pill">ж</div><div class="pill">ч</div><div class="pill">ш</div><div class="pill">щ</div><div class="pill">ц</div>
+    </div>
+    <p class="lesson-note">The same seven letters plus <strong>ц</strong> make eight. After any of them, Russian spelling never uses <strong>я</strong> or <strong>ю</strong> — write <strong>а</strong> or <strong>у</strong> instead.</p>
+    <table class="lesson-table">
+      <tr><th>Wrong</th><th>Right</th><th>Why</th></tr>
+      <tr><td class="ru">чя́шка</td><td class="ru">ча́шка</td><td>ч is in the group</td></tr>
+      <tr><td class="ru">жяль</td><td class="ru">жаль</td><td>ж is in the group</td></tr>
+      <tr><td class="ru">щю́ка</td><td class="ru">щу́ка</td><td>щ is in the group</td></tr>
+      <tr><td class="ru">кричю́</td><td class="ru">кричу́</td><td>ч is in the group</td></tr>
+    </table>
+    <p class="lesson-note"><strong>Careful with ц:</strong> ц follows the 8-letter rule for я/ю (never -ця or -цю, always -ца or -цу), but ц is <em>not</em> in the 7-letter group — words like у́лицы and пти́цы really do take ы after ц.</p>
+
+    <h4>5-letter rule — о when stressed, е when unstressed</h4>
+    <div class="pill-row">
+      <div class="pill">ж</div><div class="pill">ч</div><div class="pill">ш</div><div class="pill">щ</div><div class="pill">ц</div>
+    </div>
+    <p class="lesson-note">This smaller set (the hushing consonants plus ц, but <em>not</em> г/к/х) has its own rule for noun and adjective endings: an <strong>unstressed о</strong> is never allowed to follow ж, ч, ш, щ, ц — it's always replaced by <strong>е</strong>. A <strong>stressed о</strong>, on the other hand, is completely fine after these letters and is simply written as <strong>о</strong>. So the check is really just "is this о stressed?" — if yes, о; if no, it has to become е.</p>
+    <table class="lesson-table">
+      <tr><th>Word</th><th>Stress</th><th>Spelling</th></tr>
+      <tr><td class="ru">нож (knife), Instr.</td><td>on the ending</td><td class="ru">ножо́м</td></tr>
+      <tr><td class="ru">това́рищ (comrade), Instr.</td><td>on the stem</td><td class="ru">това́рищем</td></tr>
+      <tr><td class="ru">большо́й (big), Gen.</td><td>on the ending</td><td class="ru">большо́го</td></tr>
+      <tr><td class="ru">хоро́ший (good), Gen.</td><td>on the stem</td><td class="ru">хоро́шего</td></tr>
+    </table>
+  `
+},
+
+voicing: {
+  title: 'Voiced ↔ Voiceless Consonant Changes',
+  html: `
+    <p class="lesson-intro">Russian consonants come in voiced/voiceless pairs. Spelling doesn't change, but pronunciation shifts in two very regular, very common situations.</p>
+
+    <h4>The six pairs (plus the odd ones out)</h4>
+    <table class="lesson-table">
+      <tr><th>Voiced</th><th>б</th><th>в</th><th>г</th><th>д</th><th>ж</th><th>з</th></tr>
+      <tr><th>Voiceless</th><th>п</th><th>ф</th><th>к</th><th>т</th><th>ш</th><th>с</th></tr>
+    </table>
+    <p class="lesson-note"><strong>Always voiced, no partner (sonorants):</strong> <span class="ru">л, м, н, р, й</span> — these never devoice, even at the end of a word.<br><strong>Always voiceless, no partner:</strong> <span class="ru">х, ц, ч, щ</span> — these never voice.</p>
+
+    <h4>1. Final devoicing (word-final position)</h4>
+    <p class="lesson-note">A voiced consonant at the very end of a word is always pronounced as its voiceless partner. The spelling stays the same — only the sound changes.</p>
+    <table class="lesson-table">
+      <tr><th>Written</th><th>Pronounced</th></tr>
+      <tr><td class="ru">хлеб (bread)</td><td>[хлеп]</td></tr>
+      <tr><td class="ru">год (year)</td><td>[гот]</td></tr>
+      <tr><td class="ru">нож (knife)</td><td>[нош]</td></tr>
+      <tr><td class="ru">глаз (eye)</td><td>[глас]</td></tr>
+      <tr><td class="ru">друг (friend)</td><td>[друк]</td></tr>
+    </table>
+
+    <h4>2. Assimilation (consonant clusters inside a word)</h4>
+    <p class="lesson-note">When two consonants sit next to each other, the <em>second</em> one usually "wins" — the first one shifts to match its voicing.</p>
+    <table class="lesson-table">
+      <tr><th>Direction</th><th>Rule</th><th>Example</th></tr>
+      <tr><td>Voiceless → Voiced</td><td>a voiceless consonant before a voiced one becomes voiced</td><td class="ru">вокза́л → [вагза́л], сде́лать → [зде́лать]</td></tr>
+      <tr><td>Voiced → Voiceless</td><td>a voiced consonant before a voiceless one becomes voiceless</td><td class="ru">ло́жка → [ло́шка], ска́зка → [ска́ска], во́дка → [во́тка]</td></tr>
+    </table>
+    <p class="lesson-note">The sonorants <span class="ru">в, л, м, н, р, й</span> are the exception — a voiceless consonant before one of these does <em>not</em> become voiced (e.g. свет stays [свет], not [звет]).</p>
+  `
+},
+
+cursive: {
+  title: 'Russian Cursive (Про́пись) — Letter Shapes',
+  html: `
+    <p class="lesson-intro">Handwritten Russian joins letters together on a baseline, the way cursive English does — but a lot of the individual shapes look nothing like their printed counterparts. These are the ones that trip people up first.</p>
+
+    <h4>Letters that gain loops</h4>
+    <table class="lesson-table">
+      <tr><th>Letter</th><th>What changes in cursive</th></tr>
+      <tr><td class="ru">б</td><td>Gets a tall ascender loop above the line — easy to mistake for a Latin "b" or "6".</td></tr>
+      <tr><td class="ru">д</td><td>Gets a descender loop below the line — looks like a Latin "g" rather than the printed д.</td></tr>
+      <tr><td class="ru">в</td><td>Keeps two humps but rounds into a single continuous stroke, closer to a cursive Latin "B".</td></tr>
+      <tr><td class="ru">ф</td><td>Balloons into a large loop that crosses the baseline both above and below.</td></tr>
+    </table>
+
+    <h4>The "hump letter" cluster — easy to confuse with each other</h4>
+    <p class="lesson-note">Several cursive letters are built from small connected upward strokes ("humps") and are frequently mixed up, especially in someone else's handwriting:</p>
+    <table class="lesson-table">
+      <tr><th>Letters</th><th>How to tell them apart</th></tr>
+      <tr><td class="ru">л, м</td><td>л has two humps starting from a small hook at the baseline; м has three humps.</td></tr>
+      <tr><td class="ru">т</td><td>Three short humps with a small bar or flag over the top — the overline is the giveaway that separates it from ш.</td></tr>
+      <tr><td class="ru">ш</td><td>Three humps with <em>no</em> overline, and often a small hook or underline stroke beneath.</td></tr>
+      <tr><td class="ru">щ</td><td>Same shape as ш, plus a descender tail at the bottom right.</td></tr>
+      <tr><td class="ru">и, ц</td><td>и is a single hump with a short connecting stroke; ц is the same shape with a small descender tail added, like щ.</td></tr>
+    </table>
+
+    <h4>General rules of thumb</h4>
+    <p class="lesson-note">Cursive strokes almost never lift the pen mid-letter — everything connects in one continuous motion along the baseline. Capitals are typically written as standalone, slightly larger versions of the lowercase shape rather than a totally different form (with a few exceptions like А, Б, and Д, which use a distinct triangular/loop shape). The best way to internalize the shapes is to trace them repeatedly rather than just read about them — use the Trace &amp; Draw practice tool for that.</p>
+  `
+},
+
+genitive: {
+  title: 'Genitive Noun Endings — Full Reference',
+  html: `
+    <p class="lesson-intro">The Genitive is the most irregular-looking case simply because it has the most endings to track. Here is every regular pattern, singular and plural, sorted by gender and stem type.</p>
+
+    <h4>Genitive Singular</h4>
+    <table class="lesson-table">
+      <tr><th>Gender / stem</th><th>Ending</th><th>Example (Nom. → Gen.)</th></tr>
+      <tr><td>Masculine, hard consonant</td><td>–а</td><td class="ru">стол → стола́</td></tr>
+      <tr><td>Masculine, soft (–ь)</td><td>–я</td><td class="ru">слова́рь → словаря́</td></tr>
+      <tr><td>Masculine, –й</td><td>–я</td><td class="ru">музе́й → музе́я</td></tr>
+      <tr><td>Feminine, –а</td><td>–ы</td><td class="ru">ма́ма → ма́мы</td></tr>
+      <tr><td>Feminine, –а (after г,к,х,ж,ч,ш,щ)</td><td>–и</td><td class="ru">кни́га → кни́ги</td></tr>
+      <tr><td>Feminine, –я</td><td>–и</td><td class="ru">земля́ → земли́</td></tr>
+      <tr><td>Feminine, soft sign (–ь)</td><td>–и</td><td class="ru">дверь → две́ри</td></tr>
+      <tr><td>Neuter, –о</td><td>–а</td><td class="ru">окно́ → окна́</td></tr>
+      <tr><td>Neuter, –е</td><td>–я</td><td class="ru">по́ле → по́ля</td></tr>
+      <tr><td>Neuter, –мя (irregular)</td><td>–ме́ни</td><td class="ru">вре́мя → вре́мени, и́мя → и́мени</td></tr>
+    </table>
+    <p class="lesson-note"><strong>Reminder:</strong> the 7-letter rule (г,к,х,ж,ч,ш,щ → never ы) is exactly why feminine –а nouns split into two rows above — кни́га can't spell a genitive in –ы, so it takes –и instead.</p>
+
+    <h4>Genitive Plural</h4>
+    <table class="lesson-table">
+      <tr><th>Gender / stem</th><th>Ending</th><th>Example (Nom. sg. → Gen. pl.)</th></tr>
+      <tr><td>Masculine, hard consonant</td><td>–ов</td><td class="ru">стол → столо́в</td></tr>
+      <tr><td>Masculine, ending in ж,ч,ш,щ</td><td>–ей</td><td class="ru">нож → ноже́й</td></tr>
+      <tr><td>Masculine, soft (–ь)</td><td>–ей</td><td class="ru">слова́рь → словаре́й</td></tr>
+      <tr><td>Masculine, –й</td><td>–ев</td><td class="ru">музе́й → музе́ев</td></tr>
+      <tr><td>Feminine, –а</td><td>zero ending</td><td class="ru">кни́га → книг, ма́ма → мам</td></tr>
+      <tr><td>Feminine, –я</td><td>zero ending (often → –ь)</td><td class="ru">неде́ля → неде́ль</td></tr>
+      <tr><td>Feminine, soft sign (–ь)</td><td>–ей</td><td class="ru">ночь → ноче́й, дверь → двере́й</td></tr>
+      <tr><td>Neuter, –о</td><td>zero ending</td><td class="ru">окно́ → о́кон, письмо́ → пи́сем</td></tr>
+      <tr><td>Neuter, –е</td><td>–ей</td><td class="ru">мо́ре → море́й, по́ле → поле́й</td></tr>
+    </table>
+    <p class="lesson-note"><strong>Fleeting vowels:</strong> when a "zero ending" would leave two consonants crashing together at the end of the word, Russian often inserts a vowel to break them up — письмо́ → пи́сем, not "письм". This shows up across several zero-ending nouns and has to be learned case by case.</p>
+    <h4>Numbers &amp; Noun Agreement</h4>
+    <p class="lesson-note">The single biggest everyday use of the Genitive is right after a number. Which form of the Genitive you need — or whether you need it at all — depends on the number itself.</p>
+    <table class="lesson-table">
+      <tr><th>Number</th><th>Noun form required</th><th>Example</th></tr>
+      <tr><td>1 — оди́н / одна́ / одно́</td><td>Nominative singular (the numeral agrees in gender with the noun; the noun doesn't change case at all)</td><td class="ru">оди́н стол, одна́ кни́га, одно́ окно́</td></tr>
+      <tr><td>2, 3, 4 — два / две, три, четы́ре</td><td>Genitive singular</td><td class="ru">два стола́, две кни́ги, три окна́, четы́ре словаря́</td></tr>
+      <tr><td>5–20 — пять … два́дцать</td><td>Genitive plural</td><td class="ru">пять столо́в, де́сять книг, два́дцать о́кон</td></tr>
+    </table>
+    <p class="lesson-note"><strong>два vs две:</strong> "2" is the only number in this group with separate gender forms — <span class="ru">два</span> for masculine and neuter nouns, <span class="ru">две</span> for feminine. три and четы́ре stay the same for every gender.</p>
+
+    <h4>Compound numbers — only the last word matters</h4>
+    <p class="lesson-note">For numbers like 21, 22, or 35, agreement is decided entirely by the <em>last word</em> of the number — everything before it is irrelevant.</p>
+    <table class="lesson-table">
+      <tr><th>Number</th><th>Behaves like</th><th>Example</th></tr>
+      <tr><td>21 (два́дцать оди́н)</td><td>1 — Nominative singular, gender agreement</td><td class="ru">два́дцать оди́н стол, два́дцать одна́ кни́га</td></tr>
+      <tr><td>22 (два́дцать два)</td><td>2/3/4 — Genitive singular</td><td class="ru">два́дцать два стола́</td></tr>
+      <tr><td>25 (два́дцать пять)</td><td>5+ — Genitive plural</td><td class="ru">два́дцать пять столо́в</td></tr>
+    </table>
+    <p class="lesson-note"><strong>Adjectives along for the ride:</strong> an adjective describing a noun after 2/3/4 usually shows up in the Genitive plural regardless of the noun's gender (два больши́х стола́, две больши́х кни́ги) — this is a step beyond the noun-only pattern above, but it's the form you'll hear most in real speech.</p>
+    <p class="lesson-note"><strong>Where else the Genitive shows up:</strong> besides numbers, it covers possession and "of" phrases, negation with нет, and most non-motion prepositions (без, для, до, из, у, от, по́сле…) — see The Six Cases lesson for the full rundown of every case's job.</p>
+  `
+},
+
+counting: {
+  title: 'Counting in Russian — Numbers 1 to 1000s',
+  html: `
+    <p class="lesson-intro">Russian numbers build up piece by piece: memorize 1–20 and the nine "tens" words, and every number up to 100 is just a combination of the two. Hundreds and thousands stack the same way.</p>
+
+    <h4>1 – 20</h4>
+    <table class="lesson-table">
+      <tr><th>#</th><th>Russian</th><th>#</th><th>Russian</th></tr>
+      <tr><td>1</td><td class="ru">оди́н</td><td>11</td><td class="ru">оди́ннадцать</td></tr>
+      <tr><td>2</td><td class="ru">два</td><td>12</td><td class="ru">двена́дцать</td></tr>
+      <tr><td>3</td><td class="ru">три</td><td>13</td><td class="ru">трина́дцать</td></tr>
+      <tr><td>4</td><td class="ru">четы́ре</td><td>14</td><td class="ru">четы́рнадцать</td></tr>
+      <tr><td>5</td><td class="ru">пять</td><td>15</td><td class="ru">пятна́дцать</td></tr>
+      <tr><td>6</td><td class="ru">шесть</td><td>16</td><td class="ru">шестна́дцать</td></tr>
+      <tr><td>7</td><td class="ru">семь</td><td>17</td><td class="ru">семна́дцать</td></tr>
+      <tr><td>8</td><td class="ru">во́семь</td><td>18</td><td class="ru">восемна́дцать</td></tr>
+      <tr><td>9</td><td class="ru">де́вять</td><td>19</td><td class="ru">девятна́дцать</td></tr>
+      <tr><td>10</td><td class="ru">де́сять</td><td>20</td><td class="ru">два́дцать</td></tr>
+    </table>
+    <p class="lesson-note">Notice 11–19 are all built the same way: the digit + "-на́дцать" (a fossilized form of "on ten"). Once you know 1–10, 11–19 are nearly free.</p>
+
+    <h4>The tens, up to 100</h4>
+    <table class="lesson-table">
+      <tr><th>#</th><th>Russian</th><th>#</th><th>Russian</th></tr>
+      <tr><td>20</td><td class="ru">два́дцать</td><td>60</td><td class="ru">шестьдеся́т</td></tr>
+      <tr><td>30</td><td class="ru">три́дцать</td><td>70</td><td class="ru">се́мьдесят</td></tr>
+      <tr><td>40</td><td class="ru">со́рок</td><td>80</td><td class="ru">во́семьдесят</td></tr>
+      <tr><td>50</td><td class="ru">пятьдеся́т</td><td>90</td><td class="ru">девяно́сто</td></tr>
+      <tr><td colspan="2"></td><td>100</td><td class="ru">сто</td></tr>
+    </table>
+    <p class="lesson-note">Everything in between is just tens + ones, said in that order: 47 = со́рок семь ("forty seven"), 21 = два́дцать оди́н. со́рок (40) and девяно́сто (90) are the only two tens that don't visibly contain their digit root — worth memorizing on their own.</p>
+
+    <h4>Hundreds</h4>
+    <table class="lesson-table">
+      <tr><th>#</th><th>Russian</th><th>#</th><th>Russian</th></tr>
+      <tr><td>100</td><td class="ru">сто</td><td>500</td><td class="ru">пятьсо́т</td></tr>
+      <tr><td>200</td><td class="ru">две́сти</td><td>600</td><td class="ru">шестьсо́т</td></tr>
+      <tr><td>300</td><td class="ru">три́ста</td><td>700</td><td class="ru">семьсо́т</td></tr>
+      <tr><td>400</td><td class="ru">четы́реста</td><td>800</td><td class="ru">восемьсо́т</td></tr>
+      <tr><td colspan="2"></td><td>900</td><td class="ru">девятьсо́т</td></tr>
+    </table>
+    <p class="lesson-note">A full number just stacks hundreds → tens → ones: 347 = три́ста со́рок семь.</p>
+
+    <h4>Thousands — ты́сяча agrees like any other noun</h4>
+    <p class="lesson-note">"Thousand" (ты́сяча) is actually a regular feminine noun, so it follows the exact same 1 / 2-4 / 5+ agreement pattern from the Genitive Endings lesson — including две instead of два, since ты́сяча is feminine.</p>
+    <table class="lesson-table">
+      <tr><th>#</th><th>Russian</th></tr>
+      <tr><td>1,000</td><td class="ru">ты́сяча</td></tr>
+      <tr><td>2,000</td><td class="ru">две ты́сячи</td></tr>
+      <tr><td>3,000</td><td class="ru">три ты́сячи</td></tr>
+      <tr><td>4,000</td><td class="ru">четы́ре ты́сячи</td></tr>
+      <tr><td>5,000</td><td class="ru">пять ты́сяч</td></tr>
+      <tr><td>6,000</td><td class="ru">шесть ты́сяч</td></tr>
+      <tr><td>9,000</td><td class="ru">де́вять ты́сяч</td></tr>
+      <tr><td>10,000</td><td class="ru">де́сять ты́сяч</td></tr>
+    </table>
+    <p class="lesson-note">A number like 2024 is read as thousands + the rest: <span class="ru">две ты́сячи два́дцать четы́ре</span>. The Trace &amp; Draw and Counting practice tools use exactly this stacking system, up through the thousands.</p>
+  `
+}
+
+};
+
+function buildLearnCards(){
+  const grid = document.getElementById('learnCardGrid');
+  grid.innerHTML = '';
+  const cards = [
+    { key:'gender',  label:'Noun Gender', stamp:'Reference', desc:'The 11-rule table for spotting masculine, feminine, and neuter nouns by their ending.' },
+    { key:'cases',   label:'The Six Cases', stamp:'Reference', desc:'Question words, trigger prepositions, and the job each case does in a sentence.' },
+    { key:'genitive',label:'Genitive Endings', stamp:'New', desc:'Every regular Genitive singular and plural ending, by gender and stem type, with worked examples.' },
+    { key:'counting',label:'Counting 1–1000s', stamp:'New', desc:'1–20, the tens up to 100, hundreds, and thousands — how Russian numbers stack together.' },
+    { key:'verbs',   label:'Verb Conjugation', stamp:'Reference', desc:'Infinitive, present, past, imperative, and future — for regular verbs and four common irregulars.' },
+    { key:'spelling',label:'5/7/8-Letter Rules', stamp:'New', desc:'Which vowel can follow г,к,х,ж,ч,ш,щ,ц — and why the rule for о/е is different from the rule for ы/и.' },
+    { key:'voicing', label:'Voiced ↔ Voiceless', stamp:'New', desc:'Why "хлеб" sounds like [хлеп] and "вокза́л" sounds like [вагза́л] — final devoicing and assimilation.' }
+  ];
+  cards.forEach(c=>{
+    const card = document.createElement('button');
+    card.className = 'mode-card lesson-card';
+    card.innerHTML = '<div class="stamp">'+c.stamp+'</div><h3>'+c.label+'</h3><p>'+c.desc+'</p>';
+    withUISound(card, () => openLesson(c.key));
+    grid.appendChild(card);
+  });
+}
+
+function openLesson(key){
+  const lesson = LESSONS[key];
+  document.getElementById('learnTitle').textContent = lesson.title;
+  document.getElementById('learnContent').innerHTML = lesson.html;
+  showScreen('learn-detail');
+  window.scrollTo(0,0);
+}
+
+document.getElementById('learnBackBtn').onclick = () => showScreen('start');
+
+function buildCursiveCards(){
+  const grid = document.getElementById('cursiveCardGrid');
+  grid.innerHTML = '';
+  const cards = [
+    { label:'Letter Shapes', stamp:'Reference', desc:'Which cursive letters gain loops, and how to tell the "hump letter" cluster (л, м, т, ш, щ) apart.', action: () => openLesson('cursive') },
+    { label:'Trace & Draw', stamp:'Practice', desc:'A ruled practice pad — trace a faint guide letter or freehand it yourself, one letter at a time.', action: () => openTrace() }
+  ];
+  cards.forEach(c=>{
+    const card = document.createElement('button');
+    card.className = 'mode-card lesson-card';
+    card.innerHTML = '<div class="stamp">'+c.stamp+'</div><h3>'+c.label+'</h3><p>'+c.desc+'</p>';
+    withUISound(card, c.action);
+    grid.appendChild(card);
+  });
+}
+
+// ---------------------------------------------------------------
+// CURSIVE TRACE & DRAW — independent of the quiz state/loop above
+// ---------------------------------------------------------------
+const CYRILLIC_ALPHABET = ['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'];
+const CURSIVE_WORDS = ['ма́ма','па́па','дом','кот','друг','сестра́','кни́га','окно́','сло́во','вре́мя','письмо́','у́лица','го́род','семья́','зда́ние','музе́й','слова́рь','маши́на','ночь','соба́ка'];
+
+const traceState = { mode: 'letters', letterIndex: 0, wordIndex: 0, upper: false, showGuide: true, drawing: false, lastX: 0, lastY: 0 };
+let traceCtx = null;
+
+function openTrace(){
+  showScreen('trace');
+  window.scrollTo(0,0);
+  setupTraceCanvas();
+  renderTraceLetter();
+}
+
+function currentTraceList(){
+  return traceState.mode === 'words' ? CURSIVE_WORDS : CYRILLIC_ALPHABET;
+}
+
+function currentTraceIndex(){
+  return traceState.mode === 'words' ? traceState.wordIndex : traceState.letterIndex;
+}
+
+function setTraceIndex(i){
+  const list = currentTraceList();
+  const wrapped = (i + list.length) % list.length;
+  if(traceState.mode === 'words') traceState.wordIndex = wrapped;
+  else traceState.letterIndex = wrapped;
+}
+
+function currentTraceText(){
+  const list = currentTraceList();
+  const raw = list[currentTraceIndex()];
+  return traceState.mode === 'letters' && traceState.upper ? raw.toUpperCase() : raw;
+}
+
+function renderTraceLetter(){
+  const text = currentTraceText();
+  document.getElementById('traceLetterLabel').textContent = text;
+  const guide = document.getElementById('traceGuide');
+  guide.textContent = text;
+  // scale the guide font down for longer words so they fit the stage
+  let size = 150;
+  if(text.length > 1){
+    if(text.length <= 3) size = 120;
+    else if(text.length <= 5) size = 95;
+    else if(text.length <= 7) size = 72;
+    else size = 56;
+  }
+  guide.style.fontSize = size + 'px';
+  guide.style.visibility = traceState.showGuide ? 'visible' : 'hidden';
+
+  const caseBtn = document.getElementById('traceCaseBtn');
+  caseBtn.style.display = traceState.mode === 'words' ? 'none' : 'inline-block';
+
+  const hint = document.getElementById('traceHint');
+  hint.textContent = traceState.mode === 'words'
+    ? 'Trace the faint guide word, or draw freehand anywhere on the lines. Use Prev/Next to move through the word list.'
+    : 'Trace the faint guide letter with your mouse or finger, or draw freehand anywhere on the lines. Use Prev/Next to move through the alphabet, and the ABC/abc button to switch case.';
+
+  clearTraceCanvas();
+}
+
+function setupTraceCanvas(){
+  const canvas = document.getElementById('traceCanvas');
+  const stage = document.getElementById('traceStage');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = stage.getBoundingClientRect();
+  canvas.width = Math.max(1, Math.round(rect.width * dpr));
+  canvas.height = Math.max(1, Math.round(rect.height * dpr));
+  traceCtx = canvas.getContext('2d');
+  traceCtx.scale(dpr, dpr);
+  traceCtx.lineCap = 'round';
+  traceCtx.lineJoin = 'round';
+  traceCtx.lineWidth = 4;
+  traceCtx.strokeStyle = '#BE342A';
+
+  if(!canvas.dataset.wired){
+    canvas.dataset.wired = '1';
+    const getPos = (e)=>{
+      const r = canvas.getBoundingClientRect();
+      const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+      const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+      return {x:cx, y:cy};
+    };
+    const start = (e)=>{
+      e.preventDefault();
+      traceState.drawing = true;
+      const p = getPos(e);
+      traceState.lastX = p.x; traceState.lastY = p.y;
+      traceCtx.beginPath();
+      traceCtx.arc(p.x, p.y, traceCtx.lineWidth/2, 0, Math.PI*2);
+      traceCtx.fillStyle = traceCtx.strokeStyle;
+      traceCtx.fill();
+    };
+    const move = (e)=>{
+      if(!traceState.drawing) return;
+      e.preventDefault();
+      const p = getPos(e);
+      traceCtx.beginPath();
+      traceCtx.moveTo(traceState.lastX, traceState.lastY);
+      traceCtx.lineTo(p.x, p.y);
+      traceCtx.stroke();
+      traceState.lastX = p.x; traceState.lastY = p.y;
+    };
+    const end = ()=>{ traceState.drawing = false; };
+
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', end);
+    canvas.addEventListener('touchstart', start, {passive:false});
+    canvas.addEventListener('touchmove', move, {passive:false});
+    canvas.addEventListener('touchend', end);
+    canvas.addEventListener('touchcancel', end);
+  }
+}
+
+function clearTraceCanvas(){
+  if(!traceCtx) return;
+  const canvas = document.getElementById('traceCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  traceCtx.clearRect(0, 0, canvas.width/dpr, canvas.height/dpr);
+}
+
+document.getElementById('tracePrevBtn').onclick = () => {
+  setTraceIndex(currentTraceIndex() - 1);
+  renderTraceLetter();
+};
+document.getElementById('traceNextBtn').onclick = () => {
+  setTraceIndex(currentTraceIndex() + 1);
+  renderTraceLetter();
+};
+document.getElementById('traceCaseBtn').onclick = () => {
+  traceState.upper = !traceState.upper;
+  renderTraceLetter();
+};
+document.getElementById('traceClearBtn').onclick = () => clearTraceCanvas();
+document.getElementById('traceGuideToggleBtn').onclick = () => {
+  traceState.showGuide = !traceState.showGuide;
+  const btn = document.getElementById('traceGuideToggleBtn');
+  btn.textContent = 'Guide: ' + (traceState.showGuide ? 'On' : 'Off');
+  btn.classList.toggle('active', traceState.showGuide);
+  document.getElementById('traceGuide').style.visibility = traceState.showGuide ? 'visible' : 'hidden';
+};
+document.getElementById('traceBackBtn').onclick = () => showScreen('start');
+
+function setTraceMode(mode){
+  traceState.mode = mode;
+  document.getElementById('traceModeLettersBtn').classList.toggle('active', mode === 'letters');
+  document.getElementById('traceModeWordsBtn').classList.toggle('active', mode === 'words');
+  renderTraceLetter();
+}
+document.getElementById('traceModeLettersBtn').onclick = () => setTraceMode('letters');
+document.getElementById('traceModeWordsBtn').onclick = () => setTraceMode('words');
+
+window.addEventListener('resize', () => {
+  if(document.getElementById('screen-trace').classList.contains('active')) setupTraceCanvas();
+});
+
+buildWheel(document.getElementById('wheelHome'), null);
+buildModeGrid('genderModeGrid', GENDER_MODES, 'gender');
+buildModeGrid('caseModeGridCombined', CASE_MODES_COMBINED, 'cases');
+buildModeGrid('caseModeGridNumbers', CASE_MODES_NUMBERS, 'cases');
+buildModeGrid('soundModeGridCombined', SOUND_MODES_COMBINED, 'sounds');
+buildModeGrid('soundModeGridLetters', SOUND_MODES_LETTERS, 'sounds');
+buildModeGrid('soundModeGridVoicing', SOUND_MODES_VOICING, 'sounds');
+buildModeGrid('countingModeGrid', COUNTING_MODES, 'counting');
+buildLearnCards();
+buildCursiveCards();
+
+})();
+</script>
+</body>
+</html>
